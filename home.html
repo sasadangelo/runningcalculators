@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="RunningCalculators.css">
+    <script type="text/javascript" src="RunningCalculators.js"></script>
+</head>
+<body onload="onLoad()">
+<p><h1>Running Calculators</h1></p>
+<div class="tab">
+  <button class="tablinks" onclick="openActivity(event, 'HeartRateZone')">Heart Rate Zone</button>
+  <button class="tablinks" onclick="openActivity(event, 'PaceCalculator')">Pace Calculator</button>
+  <button class="tablinks" onclick="openActivity(event, 'RacePredictor')">Race Predictor</button>
+  <button class="tablinks" onclick="openActivity(event, 'TrainingPace')">Training Pace</button>
+  <button class="tablinks" onclick="openActivity(event, 'BodyComposition')">Body Composition</button>
+</div>
+
+<div id="HeartRateZone" class="tabcontent">
+    <h2>Heart Rate Zone</h2>
+    <p>Calculate your training zone.</p>
+	<p/>
+	<p>Do you know your max heart rate?</p>
+    <input type="radio" id="radioKnowMaxHeartRateYes" name="radioKnowMaxHeartRate" value="Yes" checked onclick="knowMaxHeartRate(this)"> Yes<br>
+    <input type="radio" id="radioKnowMaxHeartRateNo" name="radioKnowMaxHeartRate" value="No" onclick="knowMaxHeartRate(this)"> No<br>
+
+    <p id="maxHeartRateId">Max Heart Rate: <input type="text" id="maxHeartRate" name="maxHeartRate"></p>
+    <p id="ageId" style="display:none">Age: <input type="text" id="age" name="age"></p>
+    <p>Rest Heart Rate: <input type="text" id="restHeartRate" name="restHeartRate"></p>
+    <p><input type="submit" value="Submit" onclick="calculateTrainingZone()"></p>
+	
+	<table id="zoneTable">
+	    <tr>
+		    <td><p id="zone5label">Zone 5 Speed (anaerobic)</p></td>
+		    <td><p id="zone5value"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="zone4label">Zone 4 Economy (anaerobic)  : </p></td>
+		    <td><p id="zone4value"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="zone3label">Zone 3 Stamina (aerobic)  : </p></td>
+		    <td><p id="zone3value"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="zone2label">Zone 2 Endurance (aerobic)  : </p></td>
+		    <td><p id="zone2value"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="zone1label">Zone 1 Recovery (aerobic)  : </p></td>
+		    <td><p id="zone1value"/></td>
+		</tr>
+	</table>
+</div>
+
+<div id="PaceCalculator" class="tabcontent">
+    <h2>Pace Calculator</h2>
+    <p>Calculate your pace.</p>
+
+  	<p>Time    :
+	    <input type="text" id="timeHours" name="timeHours" size="2" maxlength="2">
+	    <input type="text" id="timeMinutes" name="timeMinutes" size="2" maxlength="2">
+		<input type="text" id="timeSeconds" name="timeSeconds" size="2" maxlength="2">
+		<input type="submit" value="Calculate Time" onclick="calculateTime()">
+	</p>
+    <p>Distance:
+	    <input type="text" id="distance" name="distance">
+		<select id="distanceUnit">
+		    <option value="Km" selected>Km</option>
+			<option value="Miles">Miles</option>
+        </select>
+		<select id="eventType" onChange="pickUpEvent()">
+		    <option value="" selected>Pick Event</option>
+		    <option value="Marathon">Marathon</option>
+			<option value="Halfmarathon">Halfmarathon</option>
+		    <option value="10K">10K</option>
+			<option value="5K">5K</option>
+		</select>
+	    <input type="submit" value="Calculate Distance" onclick="calculateDistance()">
+	</p>
+    <p>Pace    :
+		<input type="text" id="paceMinutes" name="paceMinutes" size="2" maxlength="2">
+		<input type="text" id="paceSeconds" name="paceSeconds" size="2" maxlength="2">
+		<select id="paceUnit">
+		    <option value="min/Km" selected>min/Km</option>
+		    <option value="min/Miles">min/Miles</option>
+		</select>
+		<input type="submit" value="Calculate Pace" onclick="calculatePace()">
+    </p>
+</div>
+
+<div id="RacePredictor" class="tabcontent">
+    <h2>Race Predictor</h2>
+    <p>
+	    Use this calculator to predict your estimated time and pace for any popular running race distance from 1500 meters to the marathon.
+	    For best results, your recent races should have a similar difficulty level (hills, surface, heat, etc.) as the race for which
+		you're predicting a time.
+	</p>
+	<p>Distance of the race race you are planning to run:
+		<select id="distanceNewRace">
+			<option value="42.125">Marathon</option>
+			<option value="21.0324">Halfmarathon</option>
+			<option value="10" selected>10K</option>
+			<option value="5">5K</option>
+		</select>
+	</p>
+	<p>Distance of the race you've recently run:
+		<select id="distanceOldRace">
+			<option value="42.125">Marathon</option>
+			<option value="21.0324">Halfmarathon</option>
+			<option value="10" selected>10K</option>
+			<option value="5">5K</option>
+		</select>
+	</p>
+  	<p>Time to run that race:
+	    <input type="text" id="timeHoursOldRace" name="timeHoursOldRace" size="2" maxlength="2">
+	    <input type="text" id="timeMinutesOldRace" name="timeMinutesOldRace" size="2" maxlength="2">
+		<input type="text" id="timeSecondsOldRace" name="timeSecondsOldRace" size="2" maxlength="2">
+		<input type="submit" value="Calculate Time" onclick="calculateNewRaceTime()">
+	</p>
+    <p id="estimatedTimeNewRaceLabel">Estimated Time:</p>
+	<p id="estimatedTimeNewRaceValue"/>
+</div>
+
+<div id="TrainingPace" class="tabcontent">
+    <h2>Training pace</h2>
+    <p>Calculate your training pace.</p>
+	<p>Distance:
+		<select id="distanceRace">
+			<option value="42.125">Marathon</option>
+			<option value="21.0324">Halfmarathon</option>
+			<option value="10" selected>10K</option>
+			<option value="5">5K</option>
+		</select>
+	</p>
+	<p>Time:
+		<input type="text" id="timeRaceHours" name="timeRaceHours" size="2" maxlength="2">
+		<input type="text" id="timeRaceMinutes" name="timeRaceMinutes" size="2" maxlength="2">
+		<input type="text" id="timeRaceSeconds" name="timeRaceSeconds" size="2" maxlength="2">
+	</p>
+	<p><input type="submit" value="Calculate Training Pace" onclick="calculateTrainingPace()"></p>
+	<table id="trainingPaceTable">
+	    <tr>
+		    <td><p id="longRunLabel">Long Run: </p></td>
+		    <td><p id="longRunValue"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="slowRunLabel">Slow Run: </p></td>
+		    <td><p id="slowRunValue"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="steadyRunLabel">Steady Run: </p></td>
+		    <td><p id="steadyRunValue"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="tempoRunLabel">Tempo Run: </p></td>
+		    <td><p id="tempoRunValue"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="pace10KLabel">Anaerobic Threshold: </p></td>
+		    <td><p id="pace10KValue"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="intervalTrainingLabel">Interval Training: </p></td>
+		    <td><p id="intervalTrainingValue"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="longRepeatLabel">Long Repeat: </p></td>
+		    <td><p id="longRepeatValue"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="mediumRepeatLabel">Medium Repeat: </p></td>
+		    <td><p id="mediumRepeatValue"/></td>
+		</tr>
+	    <tr>
+		    <td><p id="shortRepeatLabel">Short Repeat: </p></td>
+		    <td><p id="shortRepeatValue"/></td>
+		</tr>
+	</table>
+</div>
+
+<div id="BodyComposition" class="tabcontent">
+  <h2>Body Mass Index</h2>
+  <p>Calculate your body mass index.</p>
+  <p>Weight (Kg): <input type="text" id="weight" name="weight"></p>
+  <p>Height (cm): <input type="text" id="height" name="height"></p>
+  <p>Body Mass Index: <input type="text" id="bodyMassIndex" name="bodyMassIndex"></p>
+  <p><input type="submit" value="Calculate Body Mass Index" onclick="calculateBodyMassIndex()"></p>
+  <br/>
+  <h3>Body Fat</h3>
+  <p>Calculate your body fat.</p>
+  <p>Height (cm): <input type="text" id="height" name="height"></p>
+  <p>Gender: <select id="gender"><option value="Male">Male</option><option value="Female">Female</option></select></p>
+  <p>Neck (cm): <input type="text" id="neck" name="neck"></p>
+  <p>Waist (cm): <input type="text" id="waist" name="waist"></p>
+  <p>Hip (cm): <input type="text" id="hip" name="hip"></p>
+  <p>Body Fat %: <input type="text" id="bodyFat" name="bodyFat"></p>
+  <p><input type="submit" value="Calculate Body Fat" onclick="calculateBodyFat()"></p>
+</div>
+</body>
+</html>
