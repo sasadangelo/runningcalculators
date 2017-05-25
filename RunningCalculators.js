@@ -23,18 +23,8 @@ function knowMaxHeartRate(radioButton) {
 	    document.getElementById("ageId").style.display="block";
 		isknowMaxHeartRate="No";
     }
-	//document.getElementById("zone5label").style.display="none";
-	//document.getElementById("zone4label").style.display="none";
-	//document.getElementById("zone3label").style.display="none";
-	//document.getElementById("zone2label").style.display="none";
-	//document.getElementById("zone1label").style.display="none";
-
-	//document.getElementById("zone5value").style.display="none";
-	//document.getElementById("zone4value").style.display="none";
-	//document.getElementById("zone3value").style.display="none";
-	//document.getElementById("zone2value").style.display="none";
-	//document.getElementById("zone1value").style.display="none";
 	document.getElementById("zoneTable").style.display="none";
+	document.getElementById("zonePercentageTable").style.display="none";
 }
 
 function openActivity(evt, activity) {
@@ -107,24 +97,30 @@ function calculateTrainingZone() {
 		var zone2HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*60/100));
 		var zone1HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*50/100));
 
-		//document.getElementById("zone5label").style.display="inline";
-	    //document.getElementById("zone4label").style.display="inline";
-	    //document.getElementById("zone3label").style.display="inline";
-	    //document.getElementById("zone2label").style.display="inline";
-	    //document.getElementById("zone1label").style.display="inline";
-
 	    document.getElementById("zone5value").innerHTML=zone5HeartRate + " - " + maxHeartRate;
 	    document.getElementById("zone4value").innerHTML=zone4HeartRate + " - " + zone5HeartRate;
 	    document.getElementById("zone3value").innerHTML=zone3HeartRate + " - " + zone4HeartRate;
 	    document.getElementById("zone2value").innerHTML=zone2HeartRate + " - " + zone3HeartRate;
 	    document.getElementById("zone1value").innerHTML=zone1HeartRate + " - " + zone2HeartRate;
-
-		//document.getElementById("zone5value").style.display="inline";
-	    //document.getElementById("zone4value").style.display="inline";
-	    //document.getElementById("zone3value").style.display="inline";
-	    //document.getElementById("zone2value").style.display="inline";
-	    //document.getElementById("zone1value").style.display="inline";
 		document.getElementById("zoneTable").style.display="block";
+
+		var value95HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*95/100));
+		var value85HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*85/100));
+		var value75HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*75/100));
+		var value65HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*65/100));
+		var value55HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*55/100));
+
+	    document.getElementById("value95").innerHTML=value95HeartRate;
+	    document.getElementById("value90").innerHTML=zone5HeartRate;
+	    document.getElementById("value85").innerHTML=value85HeartRate;
+	    document.getElementById("value80").innerHTML=zone4HeartRate;
+	    document.getElementById("value75").innerHTML=value75HeartRate;
+	    document.getElementById("value70").innerHTML=zone3HeartRate;
+	    document.getElementById("value65").innerHTML=value65HeartRate;
+	    document.getElementById("value60").innerHTML=zone2HeartRate;
+	    document.getElementById("value55").innerHTML=value55HeartRate;
+	    document.getElementById("value50").innerHTML=zone1HeartRate;
+		document.getElementById("zonePercentageTable").style.display="block";
 	}
 }
 
@@ -557,16 +553,6 @@ function calculateTrainingPace() {
 		var mediumRepeatValueHigh=convertPaceFromSecondsToTime(pace10KSecondsValue-7);
 		var shortRepeatValueLow=convertPaceFromSecondsToTime(pace10KSecondsValue-15);
 		var shortRepeatValueHigh=convertPaceFromSecondsToTime(pace10KSecondsValue-20);
-
-		//document.getElementById("longRunLabel").style.display="block";
-		//document.getElementById("slowRunLabel").style.display="block";
-		//document.getElementById("steadyRunLabel").style.display="block";
-		//document.getElementById("tempoRunLabel").style.display="block";
-		//document.getElementById("pace10KLabel").style.display="block";
-		//document.getElementById("intervalTrainingLabel").style.display="block";
-		//document.getElementById("longRepeatLabel").style.display="block";
-		//document.getElementById("mediumRepeatLabel").style.display="block";
-		//document.getElementById("shortRepeatLabel").style.display="block";
 		document.getElementById("trainingPaceTable").style.display="block";
 
 		document.getElementById("longRunValue").innerHTML=longRunValueHigh + " - " + longRunValueLow;
@@ -578,13 +564,6 @@ function calculateTrainingPace() {
 		document.getElementById("longRepeatValue").innerHTML=longRepeatValueHigh + " - " + longRepeatValueLow;
 		document.getElementById("mediumRepeatValue").innerHTML=mediumRepeatValueHigh + " - " + mediumRepeatValueLow;
 		document.getElementById("shortRepeatValue").innerHTML=shortRepeatValueHigh + " - " + shortRepeatValueLow;
-
-		//document.getElementById("longRunValue").style.display="block";
-		//document.getElementById("slowRunValue").style.display="block";
-		//document.getElementById("tempoRunValue").style.display="block";
-		//document.getElementById("pace10KValue").style.display="block";
-		//document.getElementById("intervalTrainingValue").style.display="block";
-		//document.getElementById("repeatValue").style.display="block";
     }
 }
 
