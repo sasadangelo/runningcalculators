@@ -27,3 +27,16 @@ Access to the [Running Calculators web site](https://runningcalculators.herokuap
 * **Race Predictor**, this calculator predicts your estimated time and pace for any popular running race distance from 5K to the Marathon starting from the result of a previous race. The calculator is based on Pete Riegel formula published on American Scientist in the late 70s.
 * **Training pace**, in Running it is very important to do a specific workout to the right pace based on current fitness level. The calculator estimate your current fitness level starting from the time of a recent race. The default one is the 10K because its average pace is considered equal to the Anaerobic Threshold pace. From this pace it is possible estimate the training pace for slow and long run, for steady and tempo run and also for repeat and interval training. This estimation is based on information reported in Orlando Pizzolato (two time New York Marathon Winner in the middle of 80s) book [Correre secondo Orlando Pizzolato. Tutta l'esperienza e la passione diuna vita di corsa](https://www.amazon.it/correre-secondo-orlando-pizzolato/dp/B00E7P71QA).
 * **Body Composition**, this calculator allow you to calculate your BMI and Body Fat. Weight is one of the most important factor for runners, but it alone does not allow you to determine whether you are obese or not. BMI compare Weight with height and provide such kind of information. But even BMI is not a perfect indicator, in fact according to it Arnold Schwarznegger is considered obese while it weight above the average due to muscles. Body fat allow then to understand how much fat your body have and how much you should lose.
+
+## TODO
+* Add the main Fc percentage (95%, 90%, 85%, 80% and so on) in the Heart Rate Zone page.
+* Improve graphics.
+* For the heart value percentage underline the one to use for each kind of running.
+* Conconi Test page with Running Fitness Level (only documentation with my experience).
+* 7' Test Page with Running Fitness Level (only documentation with my experience).
+* Running Diary.
+* Lazio Race Calendar.
+* Calculate Running Fitness Level depending on Race time.
+* Page with main Running parameters (Aerobic Resistence, Aerobic, Power, Aerobic Capacity, Anaerobic Power and Anaerobic Capacity) and the training to stimulate them.
+* Shoes selector.
+* Sync up Running Diary with main vendors (Runkeeper, Tom Tom, etc.)
