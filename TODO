@@ -1,10 +1,9 @@
-* Improve graphics.
 * For the heart value percentage underline the one to use for each kind of running.
-* Conconi Test page with Running Fitness Level (only documentation with my experience).
 * 7' Test Page with Running Fitness Level (only documentation with my experience).
+* Calculate Running Fitness Level depending on Race time.
+* Conconi Test page with Running Fitness Level (only documentation with my experience).
 * Running Diary.
 * Lazio Race Calendar.
-* Calculate Running Fitness Level depending on Race time.
 * Page with main Running parameters (Aerobic Resistence, Aerobic, Power, Aerobic Capacity, Anaerobic Power and Anaerobic Capacity) and the training to stimulate them.
 * Shoes selector.
 * Sync up Running Diary with main vendors (Runkeeper, Tom Tom, etc.)

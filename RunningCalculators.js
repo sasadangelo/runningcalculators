@@ -1,5 +1,6 @@
 var isknowMaxHeartRate="Yes";
 
+
 function onLoad(radioButton) {
     isKnowMaxHeartRateYesChecked=document.getElementById("radioKnowMaxHeartRateYes").checked;
     if (isKnowMaxHeartRateYesChecked==true) {
@@ -11,6 +12,7 @@ function onLoad(radioButton) {
 	    document.getElementById("maxHeartRateId").style.display="none";
 	    document.getElementById("ageId").style.display="block";
     }
+    defaultActivity('HeartRateZone');
 }
 
 function knowMaxHeartRate(radioButton) {
@@ -25,6 +27,24 @@ function knowMaxHeartRate(radioButton) {
     }
 	document.getElementById("zoneTable").style.display="none";
 	document.getElementById("zonePercentageTable").style.display="none";
+}
+
+function defaultActivity(activity) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(activity).style.display = "block";
+    for (i = 0; i < tablinks.length; i++) {
+        if (tablinks[i].id == (activity + "Menu")) {
+            tablinks[i].className += " active";
+		}
+    }
 }
 
 function openActivity(evt, activity) {
@@ -215,7 +235,7 @@ function isValidPaceCalculatorForm(formType) {
 
 function isValidBodyMassIndexForm() {
 	var weight = document.getElementById("weight").value;
-	var height = document.getElementById("height").value;
+	var height = document.getElementById("heightBMI").value;
 
 	if (weight == "") {
 		alert("Weight must be filled out");
@@ -332,15 +352,18 @@ function calculatePace() {
 function calculateBodyMassIndex() {
     if (isValidBodyMassIndexForm()) {
         var weight = document.getElementById("weight").value;
-        var height = document.getElementById("height").value;
+        var height = document.getElementById("heightBMI").value;
         var bodyMassIndex=weight/Math.pow(height/100,2);
 
-		document.getElementById("bodyMassIndex").value=bodyMassIndex.toFixed(2);
+        document.getElementById("bodyMassIndexLabel").style.display="inline";
+		document.getElementById("bodyMassIndexValue").innerHTML=bodyMassIndex.toFixed(2);
+        document.getElementById("bodyMassIndexValue").style.display="inline";
 	}
 }
 
+
 function isValidBodyFatForm() {
-	var height = document.getElementById("height").value;
+	var height = document.getElementById("heightBF").value;
 	var neck = document.getElementById("neck").value;
 	var waist = document.getElementById("waist").value;
 	var hip = document.getElementById("hip").value;
@@ -408,7 +431,7 @@ function isValidBodyFatForm() {
 
 function calculateBodyFat() {
     if (isValidBodyFatForm()) {
-        var height = document.getElementById("height").value;
+        var height = document.getElementById("heightBF").value;
         var gender = document.getElementById("gender");
 		var genderValue = gender.options[gender.selectedIndex].value;
         var neck = document.getElementById("neck").value;
@@ -422,7 +445,9 @@ function calculateBodyFat() {
 		    bodyFat=Number(495)/(Number(1.29579)-Number(0.35004)*(Math.log10(Number(waist)+Number(hip)-Number(neck)))+Number(0.22100)*(Math.log10(height)))-Number(450)
 		}
 
-		document.getElementById("bodyFat").value=bodyFat.toFixed(2);
+        document.getElementById("bodyFatLabel").style.display="inline";
+		document.getElementById("bodyFatValue").innerHTML=bodyFat.toFixed(2);
+        document.getElementById("bodyFatValue").style.display="inline";
 	}
 }
 

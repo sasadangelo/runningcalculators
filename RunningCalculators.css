@@ -2,20 +2,22 @@ body {
     font-family: "Lato", sans-serif;
 }
 
-/* 
- * Style the tab 
+/*
+ * Style the tab
  */
 div.tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    background-color: #5f5f5f;
+    box-shadow:0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 /*
- * Style the buttons inside the tab 
+ * Style the buttons inside the tab
  */
 div.tab button {
     background-color: inherit;
+	color: #F1F1F1;
     float: left;
     border: none;
     outline: none;
@@ -25,21 +27,22 @@ div.tab button {
     font-size: 17px;
 }
 
-/* 
- * Change background color of buttons on hover 
+/*
+ * Change background color of buttons on hover
  */
 div.tab button:hover {
-    background-color: #ddd;
+    background-color: #000000;
 }
 
-/* 
+/*
  * Create an active/current tablink class
  */
 div.tab button.active {
-    background-color: #ccc;
+    background-color: #4CAF50;
+    color: #F1F1F1;
 }
 
-/* 
+/*
  * Style the tab content
  */
 .tabcontent {
@@ -47,6 +50,16 @@ div.tab button.active {
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
+}
+
+h1 {
+    font-size: 24px;
+	color: #555555;
+}
+
+h2 {
+    font-size: 20px;
+	color: #555555;
 }
 
 p#estimatedTimeNewRaceLabel {
@@ -66,5 +79,261 @@ div#HeartRateZone.tabcontent table#zonePercentageTable {
 }
 
 div#TrainingPace.tabcontent table#trainingPaceTable {
+    display: none;
+}
+
+.box {
+    background-color:#f1f1f1;
+    padding:16px;
+    margin:20px 0;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+}
+
+.boxBodyMassIndex {
+    background-color:#f1f1f1;
+    padding:16px;
+    margin:20px 0;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+	width: 47%;
+	height: 100%;
+	float: left;
+}
+
+.boxBodyFat{
+    background-color:#f1f1f1;
+    padding:16px;
+    margin:20px 0;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+	width: 47%;
+	height: 100%;
+	float: right;
+}
+
+.button {
+    font-family: Verdana, sans-serif;
+	font-size: 15px;
+    background-color:#4CAF50;
+	color:#ffffff;
+	border-color:#4CAF50;
+	border: medium none;
+	padding: 8px 16px;
+	text-align: center;
+	vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    outline: 0 none;
+    overflow: hidden;
+    text-decoration: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+table#zoneTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    float: left;
+    margin: 0px 10px 0px 0px;
+}
+
+#zoneTable td, #zoneTable th {
+    border: 1px solid #ffffff;
+    text-align: center;
+    padding: 8px;
+}
+
+#zoneTable td, #zoneTable tr {
+    text-align: center;
+}
+
+#zoneTable tr:nth-child(1) {
+    background-color: #ffffff;
+}
+
+#zoneTable tr:nth-child(2) {
+    background-color: #f74921;
+}
+
+#zoneTable tr:nth-child(3) {
+    background-color: #f96e2d;
+}
+
+#zoneTable tr:nth-child(4) {
+    background-color: #fb9339;
+}
+
+#zoneTable tr:nth-child(5) {
+    background-color: #fdb745;
+}
+
+#zoneTable tr:nth-child(6) {
+    background-color: #ffdc51;
+}
+
+table#zonePercentageTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+#zonePercentageTable td, #zonePercentageTable th {
+    border: 1px solid #ffffff;
+    text-align: center;
+    padding: 8px;
+}
+
+#zonePercentageTable tr:nth-child(1) {
+    background-color: #ffffff;
+}
+
+#zonePercentageTable tr:nth-child(2) {
+    background-color: #f74921;
+}
+
+#zonePercentageTable tr:nth-child(3) {
+    background-color: #f96e2d;
+}
+
+#zonePercentageTable tr:nth-child(4) {
+    background-color: #fb9339;
+}
+
+#zonePercentageTable tr:nth-child(5) {
+    background-color: #fdb745;
+}
+
+#zonePercentageTable tr:nth-child(6) {
+    background-color: #ffdc51;
+}
+
+#zone5label,
+#zone4label,
+#zone3label,
+#zone2label,
+#zone1label {
+    padding: 0px 30px 0px 30px;
+	font-weight: bold;
+}
+
+#label95,
+#label90,
+#label85,
+#label80,
+#label75,
+#label70,
+#label65,
+#label60,
+#label55,
+#label50 {
+    padding: 0px 10px 0px 10px;
+	font-weight: bold;
+}
+
+#value95,
+#value90,
+#value85,
+#value80,
+#value75,
+#value70,
+#value65,
+#value60,
+#value55,
+#value50 {
+    padding: 0px 40px 0px 40px;
+}
+
+.numberField {
+    text-align: right;
+}
+
+#estimatedTimeNewRaceLabel {
+	color: #555555;
+	font-weight: bold;
+}
+
+table#trainingPaceTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    //float: left;
+    margin: 0px 10px 0px 0px;
+}
+
+#trainingPaceTable td, #trainingPaceTable th {
+    border: 1px solid #ffffff;
+    text-align: center;
+    padding: 8px;
+}
+
+#trainingPaceTable td, #trainingPaceTable tr {
+    text-align: center;
+}
+
+#trainingPaceTable tr:nth-child(1) {
+    background-color: #ffffff;
+}
+
+#trainingPaceTable tr:nth-child(2) {
+    background-color: #000EE0;
+	color: #ffffff;
+}
+
+#trainingPaceTable tr:nth-child(3) {
+    background-color: #037AE2;
+	color: #ffffff;
+}
+
+#trainingPaceTable tr:nth-child(4) {
+    background-color: #07E5E5;
+}
+
+#trainingPaceTable tr:nth-child(5) {
+    background-color: #0BE880;
+}
+
+#trainingPaceTable tr:nth-child(6) {
+    background-color: #0FEB1D;
+}
+
+#trainingPaceTable tr:nth-child(7) {
+    background-color: #6CEE13;
+}
+
+#trainingPaceTable tr:nth-child(8) {
+    background-color: #D6F118;
+}
+
+#trainingPaceTable tr:nth-child(9) {
+    background-color: #F4A91C;
+}
+
+#trainingPaceTable tr:nth-child(10) {
+    background-color: #F74921;
+}
+
+p#bodyMassIndexLabel {
+    display: none;
+}
+
+#bodyMassIndexLabel {
+	color: #555555;
+	font-weight: bold;
+}
+
+p#bodyMassIndexValue {
+    display: none;
+}
+
+p#bodyFatLabel {
+    display: none;
+}
+
+#bodyFatLabel {
+	color: #555555;
+	font-weight: bold;
+}
+
+p#bodyFatValue {
     display: none;
 }
