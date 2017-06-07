@@ -71,8 +71,19 @@ function isValidTrainingZoneForm() {
             alert("Max Heart Rate must be filled out");
             return false;
         }
+
         if (isNaN(maxHeartRate)) {
             alert("Max Heart Rate must be a number");
+            return false;
+        }
+
+        if (Number(maxHeartRate) < 0) {
+            alert("Max Heart Rate must be a positive number");
+            return false;
+        }
+
+        if (Number(maxHeartRate) <= Number(restHeartRate)) {
+            alert("Max Heart Rate "+ maxHeartRate + "must be greater than Rest Heart Rate " + restHeartRate);
             return false;
         }
 	} else {
@@ -80,8 +91,14 @@ function isValidTrainingZoneForm() {
             alert("Age must be filled out");
             return false;
         }
+
         if (isNaN(age)) {
             alert("Age must be a number");
+            return false;
+        }
+
+        if (Number(age) < 0) {
+            alert("Age must be a positive number");
             return false;
         }
 	}
@@ -96,7 +113,12 @@ function isValidTrainingZoneForm() {
         return false;
     }
 
-    return true;
+	if (Number(restHeartRate) < 0) {
+		alert("Rest Heart Rate must be a positive number");
+		return false;
+	}
+
+	return true;
 }
 
 function calculateTrainingZone() {
@@ -111,11 +133,11 @@ function calculateTrainingZone() {
         var restHeartRate = document.getElementById("restHeartRate").value;
 		var reserveHeartRate=maxHeartRate-restHeartRate;
 
-		var zone5HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*90/100));
-		var zone4HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*80/100));
-		var zone3HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*70/100));
-		var zone2HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*60/100));
-		var zone1HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*50/100));
+		var zone5HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*90/100));
+		var zone4HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*80/100));
+		var zone3HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*70/100));
+		var zone2HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*60/100));
+		var zone1HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*50/100));
 
 	    document.getElementById("zone5value").innerHTML=zone5HeartRate + " - " + maxHeartRate;
 	    document.getElementById("zone4value").innerHTML=zone4HeartRate + " - " + zone5HeartRate;
@@ -124,11 +146,11 @@ function calculateTrainingZone() {
 	    document.getElementById("zone1value").innerHTML=zone1HeartRate + " - " + zone2HeartRate;
 		document.getElementById("zoneTable").style.display="block";
 
-		var value95HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*95/100));
-		var value85HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*85/100));
-		var value75HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*75/100));
-		var value65HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*65/100));
-		var value55HeartRate=Math.round(Number(restHeartRate)+Number(reserveHeartRate*55/100));
+		var value95HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*95/100));
+		var value85HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*85/100));
+		var value75HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*75/100));
+		var value65HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*65/100));
+		var value55HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*55/100));
 
 	    document.getElementById("value95").innerHTML=value95HeartRate;
 	    document.getElementById("value90").innerHTML=zone5HeartRate;
@@ -160,6 +182,11 @@ function isValidPaceCalculatorForm(formType) {
             return false;
         }
 
+        if (Number(distance) < 0) {
+            alert("Distance must be a positive number");
+            return false;
+        }
+		
         if (paceMinutes == "" && paceSeconds == "") {
             alert("Pace must be filled out");
             return false;
@@ -174,10 +201,16 @@ function isValidPaceCalculatorForm(formType) {
         }
 
         if (isNaN(paceMinutes) || isNaN(paceSeconds)) {
-            alert("Pace must be a time");
+            alert("Pace must be a valid time");
             return false;
         }
-    } else if (formType == "distance") {
+
+        if (Number(paceMinutes) < 0 || Number(paceMinutes) > 59 || 
+		    Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
+            alert("Pace must be a valid time");
+            return false;
+        }
+	} else if (formType == "distance") {
         var timeHours = document.getElementById("timeHours").value;
         var timeMinutes = document.getElementById("timeMinutes").value;
         var timeSeconds = document.getElementById("timeSeconds").value;
@@ -190,10 +223,17 @@ function isValidPaceCalculatorForm(formType) {
         }
 
         if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
-            alert("Time must be a time");
+            alert("Time must be a valid time");
             return false;
         }
 
+        if (Number(timeHours) < 0 || Number(timeHours) > 24 || 
+		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
+			Number(timeSeconds) < 0 || Number(timeSeconds)) {
+            alert("Time must be a valid time");
+            return false;
+        }
+		
         if (paceMinutes == "" && paceSeconds == "") {
             alert("Pace must be filled out");
             return false;
@@ -201,6 +241,12 @@ function isValidPaceCalculatorForm(formType) {
 
         if (isNaN(paceMinutes) || isNaN(paceSeconds)) {
             alert("Pace must be a time");
+            return false;
+        }
+
+        if (Number(paceMinutes) < 0 || Number(paceMinutes) > 59 || 
+		    Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
+            alert("Pace must be a valid time");
             return false;
         }
 	} else if (formType == "pace") {
@@ -219,6 +265,11 @@ function isValidPaceCalculatorForm(formType) {
             return false;
         }
 
+        if (Number(distance) <= 0) {
+            alert("Distance must be a positive number");
+            return false;
+        }
+
         if (timeHours == "" && timeMinutes == "" && timeSeconds == "") {
             alert("Time must be filled out");
             return false;
@@ -226,6 +277,13 @@ function isValidPaceCalculatorForm(formType) {
 
         if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
             alert("Time must be a time");
+            return false;
+        }
+
+        if (Number(timeHours) < 0 || Number(timeHours) > 24 || 
+		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
+			Number(timeSeconds) < 0 || Number(timeSeconds)) {
+            alert("Time must be a valid time");
             return false;
         }
 	}
@@ -274,11 +332,12 @@ function calculateTime() {
         var distanceUnit = document.getElementById("distanceUnit");
 		var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
         var paceMinutes = document.getElementById("paceMinutes").value;
+        var paceHours = document.getElementById("paceHours").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
         var paceUnit = document.getElementById("paceUnit");
 		var paceUnitValue = paceUnit.options[paceUnit.selectedIndex].value;
 
-		paceSeconds=Number(paceSeconds)+Number(paceMinutes*60);
+		paceSeconds=Number(paceSeconds)+Number(paceMinutes*60)+Number(paceHours*3600);
 		if (distanceUnitValue=="Miles" && paceUnitValue=="min/Km") {
 		    distance=distance*1.609344;
 	    } else if (distanceUnitValue=="Km" && paceUnitValue=="min/Miles") {
@@ -304,13 +363,14 @@ function calculateDistance() {
         var timeHours = document.getElementById("timeHours").value;
         var timeMinutes = document.getElementById("timeMinutes").value;
         var timeSeconds = document.getElementById("timeSeconds").value;
+        var paceHours = document.getElementById("paceHours").value;
         var paceMinutes = document.getElementById("paceMinutes").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
         var paceUnit = document.getElementById("paceUnit");
 		var paceUnitValue = paceUnit.options[paceUnit.selectedIndex].value;
 
 		timeSeconds=Number(timeSeconds)+Number(timeMinutes*60)+Number(timeHours*3600);
-		paceSeconds=Number(paceSeconds)+Number(paceMinutes*60);
+		paceSeconds=Number(paceSeconds)+Number(paceMinutes*60)+Number(paceHours*3600);
 		if (distanceUnitValue=="Miles" && paceUnitValue=="min/Km") {
 		    paceSeconds=paceSeconds*1.609344;
 	    } else if (distanceUnitValue=="Km" && paceUnitValue=="min/Miles") {
@@ -340,12 +400,14 @@ function calculatePace() {
 		}
 
 		var paceSeconds=Math.floor(timeSeconds/distance);
-		paceSeconds=paceSeconds%3600;
+		var paceHours=Math.floor(paceSeconds/3600);
+		paceSeconds=paceSeconds%3600
 		var paceMinutes=Math.floor(paceSeconds/60);
 		paceSeconds=paceSeconds%60;
 
-	    document.getElementById("paceMinutes").value=paceMinutes;
-	    document.getElementById("paceSeconds").value=paceSeconds;
+	    document.getElementById("paceHours").value=('0' + paceHours).slice(-2);
+	    document.getElementById("paceMinutes").value=('0' + paceMinutes).slice(-2);
+	    document.getElementById("paceSeconds").value=('0' + paceSeconds).slice(-2);
 	}
 }
 

@@ -111,7 +111,7 @@
 				<input class="button" type="submit" value="Calculate Time" onclick="calculateTime()">
 			</p>
 			<p>Distance:
-				<input type="text" id="distance" name="distance" placeholder="0" class="distanceField">
+				<input type="text" id="distance" name="distance" placeholder="0" class="numberField">
 				<select id="distanceUnit">
 					<option value="Km" selected>Km</option>
 					<option value="Miles">Miles</option>
@@ -126,6 +126,7 @@
 				<input class="button" type="submit" value="Calculate Distance" onclick="calculateDistance()">
 			</p>
 			<p>Pace    :
+				<input type="text" id="paceHours" name="paceHours" size="2" maxlength="2" placeholder="00" class="numberField">
 				<input type="text" id="paceMinutes" name="paceMinutes" size="2" maxlength="2" placeholder="00" class="numberField">
 				<input type="text" id="paceSeconds" name="paceSeconds" size="2" maxlength="2" placeholder="00" class="numberField">
 				<select id="paceUnit">
@@ -145,7 +146,7 @@
 					For best results, your recent races should have a similar difficulty level (hills, surface, heat, etc.) as the race for which
 					you're predicting a time.</em>
 			</p>
-			<p>Distance of the race race you are planning to run:
+			<p>Distance of the race you are planning to run:
 				<select id="distanceNewRace">
 					<option value="42.125">Marathon</option>
 					<option value="21.0324">Halfmarathon</option>
