@@ -19,14 +19,16 @@ function knowMaxHeartRate(radioButton) {
     if (radioButton.value == "Yes") {
 	    document.getElementById("maxHeartRateId").style.display="block";
 	    document.getElementById("ageId").style.display="none";
-		isknowMaxHeartRate="Yes";
+      isknowMaxHeartRate="Yes";
     } else {
 	    document.getElementById("maxHeartRateId").style.display="none";
 	    document.getElementById("ageId").style.display="block";
 		isknowMaxHeartRate="No";
     }
-	document.getElementById("zoneTable").style.display="none";
-	document.getElementById("zonePercentageTable").style.display="none";
+	  document.getElementById("zoneTable").style.display="none";
+	  document.getElementById("zonePercentageTable").style.display="none";
+    document.getElementById("estimatedMaxHeartRateLabel").style.display="none";
+    document.getElementById("estimatedMaxHeartRateValue").style.display="none";
 }
 
 function defaultActivity(activity) {
@@ -209,7 +211,7 @@ function isValidPaceCalculatorForm(formType) {
             alert("Distance must be a positive number");
             return false;
         }
-		
+
         if (paceHours == "" && paceMinutes == "" && paceSeconds == "") {
             alert("Pace must be filled out");
             return false;
@@ -233,7 +235,7 @@ function isValidPaceCalculatorForm(formType) {
         }
 
         if (Number(paceHours) < 0 || Number(paceHours) > 23 ||
-		    Number(paceMinutes) < 0 || Number(paceMinutes) > 59 || 
+		    Number(paceMinutes) < 0 || Number(paceMinutes) > 59 ||
 		    Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
             alert("Pace must be a valid time");
             return false;
@@ -256,13 +258,13 @@ function isValidPaceCalculatorForm(formType) {
             return false;
         }
 
-        if (Number(timeHours) < 0 || Number(timeHours) > 23 || 
+        if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
 		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
 			Number(timeSeconds) < 0 || Number(timeSeconds)) {
             alert("Time must be a valid time");
             return false;
         }
-		
+
         if (paceHours == "" && paceMinutes == "" && paceSeconds == "") {
             alert("Pace must be filled out");
             return false;
@@ -286,7 +288,7 @@ function isValidPaceCalculatorForm(formType) {
         }
 
         if (Number(paceHours) < 0 || Number(paceHours) > 23 ||
-		    Number(paceMinutes) < 0 || Number(paceMinutes) > 59 || 
+		    Number(paceMinutes) < 0 || Number(paceMinutes) > 59 ||
 		    Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
             alert("Pace must be a valid time");
             return false;
@@ -328,13 +330,13 @@ function isValidPaceCalculatorForm(formType) {
         if (timeSeconds == "") {
 		    timeSeconds=0;
         }
-		
+
         if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
             alert("Time must be a valid time");
             return false;
         }
-		
-        if (Number(timeHours) < 0 || Number(timeHours) > 23 || 
+
+        if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
 		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
 			Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
             alert("Time must be a valid time");

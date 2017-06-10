@@ -94,9 +94,9 @@ div#TrainingPace.tabcontent table#trainingPaceTable {
     padding:16px;
     margin:20px 0;
     box-shadow:0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
-	width: 47%;
-	height: 100%;
-	float: left;
+    width: 47%;
+    height: 100%;
+    float: left;
 }
 
 .boxBodyFat{
@@ -175,6 +175,7 @@ table#zoneTable {
 
 table#zonePercentageTable {
     font-family: arial, sans-serif;
+    //float: left;
     border-collapse: collapse;
 }
 
