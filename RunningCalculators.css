@@ -337,3 +337,16 @@ p#bodyFatLabel {
 p#bodyFatValue {
     display: none;
 }
+
+p#estimatedMaxHeartRateLabel {
+    display: none;
+}
+
+p#estimatedMaxHeartRateValue {
+    display: none;
+}
+
+#estimatedMaxHeartRateLabel {
+	color: #555555;
+	font-weight: bold;
+}

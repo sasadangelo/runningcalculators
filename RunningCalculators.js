@@ -73,7 +73,7 @@ function isValidTrainingZoneForm() {
         }
 
         if (isNaN(maxHeartRate)) {
-            alert("Max Heart Rate must be a number");
+            alert("Max Heart Rate must be a positive number");
             return false;
         }
 
@@ -83,7 +83,12 @@ function isValidTrainingZoneForm() {
         }
 
         if (Number(maxHeartRate) <= Number(restHeartRate)) {
-            alert("Max Heart Rate "+ maxHeartRate + "must be greater than Rest Heart Rate " + restHeartRate);
+            alert("Max Heart Rate must be greater than Rest Heart Rate ");
+            return false;
+        }
+
+        if (Number(maxHeartRate) < 20 || Number(maxHeartRate) > 220) {
+            alert("Max Heart Rate must be in the [20-220] range.");
             return false;
         }
 	} else {
@@ -93,7 +98,7 @@ function isValidTrainingZoneForm() {
         }
 
         if (isNaN(age)) {
-            alert("Age must be a number");
+            alert("Age must be a positive number");
             return false;
         }
 
@@ -101,6 +106,11 @@ function isValidTrainingZoneForm() {
             alert("Age must be a positive number");
             return false;
         }
+
+		if (Number(age) < 1 || Number(age) > 130) {
+			alert("Age must be in the [1-130] range.");
+			return false;
+		}
 	}
 
     if (restHeartRate == "") {
@@ -109,12 +119,17 @@ function isValidTrainingZoneForm() {
     }
 
     if (isNaN(restHeartRate)) {
-        alert("Rest Heart Rate must be a number");
+        alert("Rest Heart Rate must be a positive number");
         return false;
     }
 
 	if (Number(restHeartRate) < 0) {
 		alert("Rest Heart Rate must be a positive number");
+		return false;
+	}
+
+	if (Number(restHeartRate) < 20 || Number(restHeartRate) > 220) {
+		alert("Rest Heart Rate must be in the [20-220] range.");
 		return false;
 	}
 
@@ -126,9 +141,16 @@ function calculateTrainingZone() {
         var maxHeartRate;
         if (isknowMaxHeartRate=="Yes") {
             maxHeartRate = document.getElementById("maxHeartRate").value;
+
+			document.getElementById("estimatedMaxHeartRateLabel").style.display="none";
+			document.getElementById("estimatedMaxHeartRateValue").style.display="none";
  		} else {
 		    var age = document.getElementById("age").value;
             maxHeartRate = 220-age;
+
+			document.getElementById("estimatedMaxHeartRateLabel").style.display="inline";
+			document.getElementById("estimatedMaxHeartRateValue").innerHTML=maxHeartRate;
+			document.getElementById("estimatedMaxHeartRateValue").style.display="inline";
 		}
         var restHeartRate = document.getElementById("restHeartRate").value;
 		var reserveHeartRate=maxHeartRate-restHeartRate;
@@ -169,6 +191,7 @@ function calculateTrainingZone() {
 function isValidPaceCalculatorForm(formType) {
     if (formType == "time") {
         var distance = document.getElementById("distance").value;
+        var paceHours = document.getElementById("paceHours").value;
         var paceMinutes = document.getElementById("paceMinutes").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
 
@@ -187,9 +210,13 @@ function isValidPaceCalculatorForm(formType) {
             return false;
         }
 		
-        if (paceMinutes == "" && paceSeconds == "") {
+        if (paceHours == "" && paceMinutes == "" && paceSeconds == "") {
             alert("Pace must be filled out");
             return false;
+        }
+
+        if (paceHours == "") {
+            paceMinutes=0;
         }
 
         if (paceMinutes == "") {
@@ -200,12 +227,13 @@ function isValidPaceCalculatorForm(formType) {
             paceSeconds=0;
         }
 
-        if (isNaN(paceMinutes) || isNaN(paceSeconds)) {
+        if (isNaN(paceHours) || isNaN(paceMinutes) || isNaN(paceSeconds)) {
             alert("Pace must be a valid time");
             return false;
         }
 
-        if (Number(paceMinutes) < 0 || Number(paceMinutes) > 59 || 
+        if (Number(paceHours) < 0 || Number(paceHours) > 23 ||
+		    Number(paceMinutes) < 0 || Number(paceMinutes) > 59 || 
 		    Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
             alert("Pace must be a valid time");
             return false;
@@ -214,6 +242,7 @@ function isValidPaceCalculatorForm(formType) {
         var timeHours = document.getElementById("timeHours").value;
         var timeMinutes = document.getElementById("timeMinutes").value;
         var timeSeconds = document.getElementById("timeSeconds").value;
+        var paceHours = document.getElementById("paceHours").value;
         var paceMinutes = document.getElementById("paceMinutes").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
 
@@ -227,24 +256,37 @@ function isValidPaceCalculatorForm(formType) {
             return false;
         }
 
-        if (Number(timeHours) < 0 || Number(timeHours) > 24 || 
+        if (Number(timeHours) < 0 || Number(timeHours) > 23 || 
 		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
 			Number(timeSeconds) < 0 || Number(timeSeconds)) {
             alert("Time must be a valid time");
             return false;
         }
 		
-        if (paceMinutes == "" && paceSeconds == "") {
+        if (paceHours == "" && paceMinutes == "" && paceSeconds == "") {
             alert("Pace must be filled out");
             return false;
         }
 
-        if (isNaN(paceMinutes) || isNaN(paceSeconds)) {
-            alert("Pace must be a time");
+        if (paceHours == "") {
+            paceMinutes=0;
+        }
+
+        if (paceMinutes == "") {
+            paceMinutes=0;
+        }
+
+        if (paceSeconds == "") {
+            paceSeconds=0;
+        }
+
+        if (isNaN(paceHours) || isNaN(paceMinutes) || isNaN(paceSeconds)) {
+            alert("Pace must be a valid time");
             return false;
         }
 
-        if (Number(paceMinutes) < 0 || Number(paceMinutes) > 59 || 
+        if (Number(paceHours) < 0 || Number(paceHours) > 23 ||
+		    Number(paceMinutes) < 0 || Number(paceMinutes) > 59 || 
 		    Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
             alert("Pace must be a valid time");
             return false;
@@ -275,14 +317,26 @@ function isValidPaceCalculatorForm(formType) {
             return false;
         }
 
-        if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
-            alert("Time must be a time");
-            return false;
+        if (timeHours == "") {
+		    timeHours=0;
         }
 
-        if (Number(timeHours) < 0 || Number(timeHours) > 24 || 
+        if (timeMinutes == "") {
+		    timeMinutes=0;
+        }
+
+        if (timeSeconds == "") {
+		    timeSeconds=0;
+        }
+		
+        if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
+            alert("Time must be a valid time");
+            return false;
+        }
+		
+        if (Number(timeHours) < 0 || Number(timeHours) > 23 || 
 		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
-			Number(timeSeconds) < 0 || Number(timeSeconds)) {
+			Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
             alert("Time must be a valid time");
             return false;
         }
@@ -344,15 +398,15 @@ function calculateTime() {
 		    distance=distance/1.609344;
 	    }
 
-		var timeSeconds=paceSeconds*distance;
+		var timeSeconds=Math.floor(paceSeconds*distance);
 		var timeHours=Math.floor(timeSeconds/3600);
 		timeSeconds=timeSeconds%3600;
 		var timeMinutes=Math.floor(timeSeconds/60);
 		timeSeconds=timeSeconds%60;
 
-		document.getElementById("timeHours").value=timeHours;
-	    document.getElementById("timeMinutes").value=timeMinutes;
-	    document.getElementById("timeSeconds").value=timeSeconds;
+		document.getElementById("timeHours").value=('0' + timeHours).slice(-2);
+	    document.getElementById("timeMinutes").value=('0' + timeMinutes).slice(-2);
+	    document.getElementById("timeSeconds").value=('0' + timeSeconds).slice(-2);
 	}
 }
 
