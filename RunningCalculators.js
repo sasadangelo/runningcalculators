@@ -295,24 +295,11 @@ function isValidPaceCalculatorForm(formType) {
         }
 	} else if (formType == "pace") {
         var distance = document.getElementById("distance").value;
+        var distanceUnit = document.getElementById("distanceUnit");
+		var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
         var timeHours = document.getElementById("timeHours").value;
         var timeMinutes = document.getElementById("timeMinutes").value;
         var timeSeconds = document.getElementById("timeSeconds").value;
-
-        if (distance == "") {
-            alert("Distance must be filled out");
-            return false;
-        }
-
-        if (isNaN(distance)) {
-            alert("Distance must be a number");
-            return false;
-        }
-
-        if (Number(distance) <= 0) {
-            alert("Distance must be a positive number");
-            return false;
-        }
 
         if (timeHours == "" && timeMinutes == "" && timeSeconds == "") {
             alert("Time must be filled out");
@@ -339,9 +326,32 @@ function isValidPaceCalculatorForm(formType) {
         if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
 		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
 			Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
-            alert("Time must be a valid time");
+            alert("Time is too long, valid range is (0:0:0-23:59:59]");
             return false;
         }
+
+        if (distance == "") {
+            alert("Distance must be filled out");
+            return false;
+        }
+
+        if (isNaN(distance)) {
+            alert("Distance must be a number");
+            return false;
+        }
+
+        if (Number(distance) <= 0) {
+            alert("Distance must be a positive number");
+            return false;
+        }
+
+		if (distanceUnitValue=="Miles") {
+		    distance=distance*1.609344;
+        }
+		if (Number(distance) > 150) {
+			alert("Distance too long, valid range is (0-150Km] or (0-93.20Miles]");
+			return false;
+		}
 	}
 
     return true;

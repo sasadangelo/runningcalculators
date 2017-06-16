@@ -171,4 +171,86 @@ Heart Rate Zones Test
     Results: 
         Max Heart Rate=220-Age
         Percentage correctly calculated
-    
+
+Pace Calculator
+---------------
+	Pace Calculation
+	----------------
+		Test 1: Time must be filled out
+		-------------------------------
+		Input:
+			Leave Time empty.
+			Leave Distance empty.
+		Results: 
+			The message "Time must be filled out" appear.
+
+		Test 2: Distance must be filled out
+		-----------------------------------
+		Input:
+			Insert a valid time in Time.
+			Leave Distance empty.
+		Results: 
+			The message "Distance must be filled out" appear.
+
+		Test 3: Time must be a valid time
+		---------------------------------
+		Input: 
+			Time=<whatever string or negative numbers in hour, minutes or seconds>
+			Distance=<positive number>
+		Results: 
+			The message "Time must be a valid time" appear.
+
+		Test 4: Distance must be a positive number
+		------------------------------------------
+		Input: 
+			Time=valid time
+			Distance=<string or negative number or 0>
+		Results: 
+			The message "Distance must be a positive number" appear.
+
+		Test 5: Time is too big
+		------------------------------------------
+		Input: 
+			Time=<hour>23, minutes>59, seconds>59>
+			Distance=<positive number>
+		Results: 
+			The message "Time is too high, valid range is [0-23:59':59'']" appear.
+
+		Test 6: Distance is too big
+		------------------------------------------
+		Input: 
+			Time=valid time
+			Distance=<positive number > 150 Km>
+		Results: 
+			The message "Distance is too long, valid range is (0-150Km]" appear.
+
+		Test 7: Successful
+		------------------------------------------
+		Input: 
+			Time=valid time
+			Distance=valid distance in Km
+		Results: 
+			Correct pace is calculated
+
+		Test 8: Successful
+		------------------------------------------
+		Input: 
+			Time=valid time
+			Distance=valid distance in miles
+		Results: 
+			Correct pace is calculated
+
+		Test 9: Successful
+		------------------------------------------
+		Input: 
+			Time=valid time
+			Distance=pick an event
+		Results: 
+			Correct pace is calculated
+			
+	Time Calculation
+	----------------
+
+	Distance Calculation
+	--------------------
+	
