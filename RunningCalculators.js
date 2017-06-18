@@ -193,9 +193,13 @@ function calculateTrainingZone() {
 function isValidPaceCalculatorForm(formType) {
     if (formType == "time") {
         var distance = document.getElementById("distance").value;
+        var distanceUnit = document.getElementById("distanceUnit");
+		    var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
         var paceHours = document.getElementById("paceHours").value;
         var paceMinutes = document.getElementById("paceMinutes").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
+        var paceUnit = document.getElementById("paceUnit");
+		    var paceUnitValue = paceUnit.options[paceUnit.selectedIndex].value;
 
         if (distance == "") {
             alert("Distance must be filled out");
@@ -203,14 +207,22 @@ function isValidPaceCalculatorForm(formType) {
         }
 
         if (isNaN(distance)) {
-            alert("Distance must be a number");
-            return false;
-        }
-
-        if (Number(distance) < 0) {
             alert("Distance must be a positive number");
             return false;
         }
+
+        if (Number(distance) <= 0) {
+            alert("Distance must be a positive number");
+            return false;
+        }
+
+        if (distanceUnitValue=="Miles") {
+		        distance=distance*1.609344;
+        }
+		    if (Number(distance) > 150) {
+			      alert("Distance too long, valid range is (0-150Km] or (0-93.20Miles]");
+			     return false;
+		    }
 
         if (paceHours == "" && paceMinutes == "" && paceSeconds == "") {
             alert("Pace must be filled out");
@@ -218,7 +230,7 @@ function isValidPaceCalculatorForm(formType) {
         }
 
         if (paceHours == "") {
-            paceMinutes=0;
+            paceHours=0;
         }
 
         if (paceMinutes == "") {
@@ -235,9 +247,18 @@ function isValidPaceCalculatorForm(formType) {
         }
 
         if (Number(paceHours) < 0 || Number(paceHours) > 23 ||
-		    Number(paceMinutes) < 0 || Number(paceMinutes) > 59 ||
-		    Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
+		        Number(paceMinutes) < 0 || Number(paceMinutes) > 59 ||
+		        Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
             alert("Pace must be a valid time");
+            return false;
+        }
+
+        var timeInSeconds=Number(paceHours)*3600+Number(paceMinutes)*60+Number(paceSeconds);
+        if (paceUnitValue=="min/Miles") {
+            timeInSeconds=timeInSeconds*1.609344;
+        }
+        if (Number(timeInSeconds) > 1200 || Number(timeInSeconds) <= 0) {
+            alert("Pace must be a valid time in the range (0-20 min/Km] or (0-32 min/Miles]");
             return false;
         }
 	} else if (formType == "distance") {
@@ -247,59 +268,6 @@ function isValidPaceCalculatorForm(formType) {
         var paceHours = document.getElementById("paceHours").value;
         var paceMinutes = document.getElementById("paceMinutes").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
-
-        if (timeHours == "" && timeMinutes == "" && timeSeconds == "") {
-            alert("Time must be filled out");
-            return false;
-        }
-
-        if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
-            alert("Time must be a valid time");
-            return false;
-        }
-
-        if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
-		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
-			Number(timeSeconds) < 0 || Number(timeSeconds)) {
-            alert("Time must be a valid time");
-            return false;
-        }
-
-        if (paceHours == "" && paceMinutes == "" && paceSeconds == "") {
-            alert("Pace must be filled out");
-            return false;
-        }
-
-        if (paceHours == "") {
-            paceMinutes=0;
-        }
-
-        if (paceMinutes == "") {
-            paceMinutes=0;
-        }
-
-        if (paceSeconds == "") {
-            paceSeconds=0;
-        }
-
-        if (isNaN(paceHours) || isNaN(paceMinutes) || isNaN(paceSeconds)) {
-            alert("Pace must be a valid time");
-            return false;
-        }
-
-        if (Number(paceHours) < 0 || Number(paceHours) > 23 ||
-		    Number(paceMinutes) < 0 || Number(paceMinutes) > 59 ||
-		    Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
-            alert("Pace must be a valid time");
-            return false;
-        }
-	} else if (formType == "pace") {
-        var distance = document.getElementById("distance").value;
-        var distanceUnit = document.getElementById("distanceUnit");
-		var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
-        var timeHours = document.getElementById("timeHours").value;
-        var timeMinutes = document.getElementById("timeMinutes").value;
-        var timeSeconds = document.getElementById("timeSeconds").value;
 
         if (timeHours == "" && timeMinutes == "" && timeSeconds == "") {
             alert("Time must be filled out");
@@ -324,8 +292,87 @@ function isValidPaceCalculatorForm(formType) {
         }
 
         if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
-		    Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
-			Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
+		        Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
+			      Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
+            alert("Time must be a valid time in the range (0-23:59:59]");
+            return false;
+        }
+
+        if (paceHours == "" && paceMinutes == "" && paceSeconds == "") {
+            alert("Pace must be filled out");
+            return false;
+        }
+
+        if (paceHours == "") {
+            paceHours=0;
+        }
+
+        if (paceMinutes == "") {
+            paceMinutes=0;
+        }
+
+        if (paceSeconds == "") {
+            paceSeconds=0;
+        }
+
+        if (isNaN(paceHours) || isNaN(paceMinutes) || isNaN(paceSeconds)) {
+            alert("Pace must be a valid time");
+            return false;
+        }
+
+        if (Number(paceHours) < 0 || Number(paceHours) > 23 ||
+		        Number(paceMinutes) < 0 || Number(paceMinutes) > 59 ||
+		        Number(paceSeconds) < 0 || Number(paceSeconds) > 59) {
+            alert("Pace must be a valid time");
+            return false;
+        }
+        var timeInSeconds=Number(paceHours)*3600+Number(paceMinutes)*60+Number(paceSeconds);
+        if (paceUnitValue=="min/Miles") {
+            timeInSeconds=timeInSeconds*1.609344;
+        }
+        if (Number(timeInSeconds) > 1200 || Number(timeInSeconds) <= 0) {
+            alert("Pace must be a valid time in the range (0-20 min/Km] or (0-32 min/Miles]");
+            return false;
+        }
+	} else if (formType == "pace") {
+        var distance = document.getElementById("distance").value;
+        var distanceUnit = document.getElementById("distanceUnit");
+		    var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
+        var timeHours = document.getElementById("timeHours").value;
+        var timeMinutes = document.getElementById("timeMinutes").value;
+        var timeSeconds = document.getElementById("timeSeconds").value;
+
+        if (timeHours == "" && timeMinutes == "" && timeSeconds == "") {
+            alert("Time must be filled out");
+            return false;
+        }
+
+        if (timeHours == "") {
+		    timeHours=0;
+        }
+
+        if (timeMinutes == "") {
+		    timeMinutes=0;
+        }
+
+        if (timeSeconds == "") {
+		    timeSeconds=0;
+        }
+
+        if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
+            alert("Time must be a valid time in the range (0-23:59:59]");
+            return false;
+        }
+
+        if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
+		        Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
+			      Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
+            alert("Time must be a valid time in the range (0-23:59:59]");
+            return false;
+        }
+
+        var timeInSeconds=Number(timeHours)*3600+Number(timeMinutes)*60+Number(timeSeconds);
+        if (Number(timeInSeconds) > 86389) {
             alert("Time is too long, valid range is (0:0:0-23:59:59]");
             return false;
         }
@@ -345,14 +392,14 @@ function isValidPaceCalculatorForm(formType) {
             return false;
         }
 
-		if (distanceUnitValue=="Miles") {
-		    distance=distance*1.609344;
+		    if (distanceUnitValue=="Miles") {
+		        distance=distance*1.609344;
         }
-		if (Number(distance) > 150) {
-			alert("Distance too long, valid range is (0-150Km] or (0-93.20Miles]");
-			return false;
-		}
-	}
+		    if (Number(distance) > 150) {
+			      alert("Distance too long, valid range is (0-150Km] or (0-93.20Miles]");
+			     return false;
+		    }
+	  }
 
     return true;
 }
@@ -396,12 +443,12 @@ function calculateTime() {
     if (isValidPaceCalculatorForm("time")) {
         var distance = document.getElementById("distance").value;
         var distanceUnit = document.getElementById("distanceUnit");
-		var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
+		    var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
         var paceMinutes = document.getElementById("paceMinutes").value;
         var paceHours = document.getElementById("paceHours").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
         var paceUnit = document.getElementById("paceUnit");
-		var paceUnitValue = paceUnit.options[paceUnit.selectedIndex].value;
+		    var paceUnitValue = paceUnit.options[paceUnit.selectedIndex].value;
 
 		paceSeconds=Number(paceSeconds)+Number(paceMinutes*60)+Number(paceHours*3600);
 		if (distanceUnitValue=="Miles" && paceUnitValue=="min/Km") {
@@ -451,30 +498,30 @@ function calculatePace() {
     if (isValidPaceCalculatorForm("pace")) {
         var distance = document.getElementById("distance").value;
         var distanceUnit = document.getElementById("distanceUnit");
-		var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
+        var distanceUnitValue = distanceUnit.options[distanceUnit.selectedIndex].value;
         var timeHours = document.getElementById("timeHours").value;
         var timeMinutes = document.getElementById("timeMinutes").value;
         var timeSeconds = document.getElementById("timeSeconds").value;
         var paceUnit = document.getElementById("paceUnit");
-		var paceUnitValue = paceUnit.options[paceUnit.selectedIndex].value;
+		    var paceUnitValue = paceUnit.options[paceUnit.selectedIndex].value;
 
-		timeSeconds=Number(timeSeconds)+Number(timeMinutes*60)+Number(timeHours*3600);
-		if (distanceUnitValue=="Miles" && paceUnitValue=="min/Km") {
-		    distance=distance*1.609344;
-	    } else if (distanceUnitValue=="Km" && paceUnitValue=="min/Miles") {
-		    distance=distance/1.609344;
-		}
+		    timeSeconds=Number(timeSeconds)+Number(timeMinutes*60)+Number(timeHours*3600);
+		    if (distanceUnitValue=="Miles" && paceUnitValue=="min/Km") {
+		        distance=distance*1.609344;
+	      } else if (distanceUnitValue=="Km" && paceUnitValue=="min/Miles") {
+		        distance=distance/1.609344;
+		    }
 
-		var paceSeconds=Math.floor(timeSeconds/distance);
-		var paceHours=Math.floor(paceSeconds/3600);
-		paceSeconds=paceSeconds%3600
-		var paceMinutes=Math.floor(paceSeconds/60);
-		paceSeconds=paceSeconds%60;
+		    var paceSeconds=Math.floor(timeSeconds/distance);
+		    var paceHours=Math.floor(paceSeconds/3600);
+		    paceSeconds=paceSeconds%3600
+		    var paceMinutes=Math.floor(paceSeconds/60);
+		    paceSeconds=paceSeconds%60;
 
-	    document.getElementById("paceHours").value=('0' + paceHours).slice(-2);
-	    document.getElementById("paceMinutes").value=('0' + paceMinutes).slice(-2);
-	    document.getElementById("paceSeconds").value=('0' + paceSeconds).slice(-2);
-	}
+	      document.getElementById("paceHours").value=('0' + paceHours).slice(-2);
+	      document.getElementById("paceMinutes").value=('0' + paceMinutes).slice(-2);
+	      document.getElementById("paceSeconds").value=('0' + paceSeconds).slice(-2);
+	  }
 }
 
 function calculateBodyMassIndex() {

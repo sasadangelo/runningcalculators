@@ -6,111 +6,111 @@ Heart Rate Zones Test
         Select Yes
         Leave Max Heart Rate empty.
         Leave Rest Heart Rate empty.
-    Results: 
+    Results:
         The message "Max Heart Rate must be filled out" appear.
 
     Test 2: Rest Heart Rate must be filled out
     ------------------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number>
         Leave Rest Heart Rate empty.
-    Results: 
+    Results:
         The message "Rest Heart Rate must be filled out" appear.
-        
+
     Test 3: Max Heart Rate must be a positive number
     ------------------------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<whatever string that it is not a number>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         The message "Max Heart Rate must be a positive number" appear.
 
     Test 4: Max Heart Rate must be a positive number
     ------------------------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<negative number>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         The message "Max Heart Rate must be a positive number" appear.
 
     Test 5: Rest Heart Rate must be a positive number
     -------------------------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number in [20-220] range>
         Rest Heart Rate=<whatever string that it is not a number>
-    Results: 
+    Results:
         The message "Rest Heart Rate must be a positive number" appear.
 
     Test 6: Rest Heart Rate must be a positive number
     -------------------------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number in [20-220] range>
         Rest Heart Rate=<negative number>
-    Results: 
+    Results:
         The message "Rest Heart Rate must be a positive number" appear.
 
     Test 7: Max and Rest Heart Rate must be greater than Rest Heart Rate
     --------------------------------------------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<same positive number in [20-220] range>
         Rest Heart Rate=<same positive number in [20-220] range>
-    Results: 
-        The message "Max Heart Rate must be greater than Rest Heart Rate" appear.   
+    Results:
+        The message "Max Heart Rate must be greater than Rest Heart Rate" appear.
 
     Test 8: Max Heart Rate must be greater than Rest Heart Rate
     -----------------------------------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number less than Rest Heart Rate>
         Rest Heart Rate=<positive number greater than Max Heart Rate>
-    Results: 
+    Results:
         The message "Max Heart Rate must be greater than Rest Heart Rate" appear.
-        
+
     Test 9: Max Heart Rate is too low
     ----------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number less than 20>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         The message "Max Heart Rate is too low, valid range is [20-220]" appear.
 
     Test 10: Rest Heart Rate is too low
     -----------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number in [20-220] range>
         Rest Heart Rate=<positive number less than 20>
-    Results: 
+    Results:
         The message "Rest Heart Rate is too low, valid range is [20-220]" appear.
 
     Test 11: Max Heart Rate is too high
     -----------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number greater than 220>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         The message "Max Heart Rate is too high, valid range is [20-220]" appear.
 
     Test 12: Rest Heart Rate is too low
     -----------------------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number in [20-220] range>
         Rest Heart Rate=<positive number greater than 220>
-    Results: 
+    Results:
         The message "Rest Heart Rate is too high, valid range is [20-220]" appear.
 
     Test 13: Successful
     -------------------
-    Input: 
+    Input:
         Select Yes
         Max Heart Rate=<positive number in [20-220] range>
         Rest Heart Rate=<positive number in [20-220] range less than Max Heart Rate>
@@ -123,52 +123,52 @@ Heart Rate Zones Test
         Select No
         Leave Age empty.
         Leave Rest Heart Rate empty.
-    Results: 
+    Results:
         The message "Age must be filled out" appear.
 
     Test 15: Age must be a positive number
     --------------------------------------
-    Input: 
+    Input:
         Select No
         Age=<whatever string that it is not a number>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         The message "Age must be a positive number" appear.
 
     Test 16: Age must be a positive number
     --------------------------------------
-    Input: 
+    Input:
         Select No
         Age=<negative number>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         The message "Age must be a positive number" appear.
 
     Test 17: Age is too low
     -----------------------
-    Input: 
+    Input:
         Select No
         Age=<positive number less than 1>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         The message "Max Heart Rate is too low, valid range is [20-220]" appear.
 
     Test 18: Age is too high
     ------------------------
-    Input: 
+    Input:
         Select No
         Age=<positive number greater than 130>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         The message "Age is too low, valid range is [20-220]" appear.
 
     Test 19: Successful
     -------------------
-    Input: 
+    Input:
         Select No
         Age=<positive number in the [1-130] range>
         Rest Heart Rate=<positive number in [20-220] range>
-    Results: 
+    Results:
         Max Heart Rate=220-Age
         Percentage correctly calculated
 
@@ -181,7 +181,7 @@ Pace Calculator
 		Input:
 			Leave Time empty.
 			Leave Distance empty.
-		Results: 
+		Results:
 			The message "Time must be filled out" appear.
 
 		Test 2: Distance must be filled out
@@ -189,68 +189,254 @@ Pace Calculator
 		Input:
 			Insert a valid time in Time.
 			Leave Distance empty.
-		Results: 
+		Results:
 			The message "Distance must be filled out" appear.
 
 		Test 3: Time must be a valid time
 		---------------------------------
-		Input: 
-			Time=<whatever string or negative numbers in hour, minutes or seconds>
+		Input:
+			Time=<whatever string or negative numbers in hour, minutes or seconds or
+            hours>23 and minutes>59 and seconds>59>
 			Distance=<positive number>
-		Results: 
+		Results:
 			The message "Time must be a valid time" appear.
 
 		Test 4: Distance must be a positive number
 		------------------------------------------
-		Input: 
+		Input:
 			Time=valid time
 			Distance=<string or negative number or 0>
-		Results: 
+		Results:
 			The message "Distance must be a positive number" appear.
-
-		Test 5: Time is too big
-		------------------------------------------
-		Input: 
-			Time=<hour>23, minutes>59, seconds>59>
-			Distance=<positive number>
-		Results: 
-			The message "Time is too high, valid range is [0-23:59':59'']" appear.
 
 		Test 6: Distance is too big
 		------------------------------------------
-		Input: 
+		Input:
 			Time=valid time
 			Distance=<positive number > 150 Km>
-		Results: 
+		Results:
 			The message "Distance is too long, valid range is (0-150Km]" appear.
 
 		Test 7: Successful
 		------------------------------------------
-		Input: 
+		Input:
 			Time=valid time
 			Distance=valid distance in Km
-		Results: 
+		Results:
 			Correct pace is calculated
 
 		Test 8: Successful
 		------------------------------------------
-		Input: 
+		Input:
 			Time=valid time
 			Distance=valid distance in miles
-		Results: 
+		Results:
 			Correct pace is calculated
 
 		Test 9: Successful
 		------------------------------------------
-		Input: 
+		Input:
 			Time=valid time
 			Distance=pick an event
-		Results: 
+		Results:
 			Correct pace is calculated
-			
+
 	Time Calculation
 	----------------
+    Test 1: Distance must be filled out
+    -------------------------------
+    Input:
+      Leave Pace empty.
+      Leave Distance empty.
+    Results:
+      The message "Distance must be filled out" appear.
+
+    Test 2: Pace must be filled out
+    -----------------------------------
+    Input:
+      Insert a valid distance.
+      Leave Pace empty.
+    Results:
+      The message "Pace must be filled out" appear.
+
+    Test 3: Distance must be a positive number
+		------------------------------------------
+		Input:
+			Pace=valid pace
+			Distance=<string or negative number or 0>
+		Results:
+			The message "Distance must be a positive number" appear.
+
+    Test 4: Pace must be a valid time
+		---------------------------------
+		Input:
+			Pace=<whatever string or negative numbers in hour, minutes or seconds or
+            hours>23 or minutes>59 or seconds>59>
+			Distance=<positive number>
+		Results:
+			The message "Time must be a valid time" appear.
+
+    Test 5: Pace is too slow
+		------------------------
+		Input:
+			Pace=<pace > 20 min/Km or 32 min/miles>
+			Distance=<positive number>
+		Results:
+			The message "Pace is too slow, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
+
+    Test 6: Pace is too fast
+		------------------------
+		Input:
+			Pace=<pace = 0 min/Km>
+			Distance=<positive number>
+		Results:
+			The message "Pace is too fast, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
+
+		Test 7: Distance is too big
+		------------------------------------------
+		Input:
+			Pace=valid pace
+			Distance=<positive number > 150 Km>
+		Results:
+			The message "Distance is too long, valid range is (0-150Km]" appear.
+
+		Test 7: Successful
+		------------------------------------------
+		Input:
+			Pace=valid pace min/Km
+			Distance=valid distance in Km
+		Results:
+			Correct pace is calculated
+
+		Test 8: Successful
+		------------------------------------------
+		Input:
+			Pace=valid pace min/miles
+			Distance=valid distance in Km
+		Results:
+			Correct pace is calculated
+
+    Test 9: Successful
+		------------------------------------------
+		Input:
+			Pace=valid pace min/Km
+			Distance=valid distance in Miles
+		Results:
+			Correct pace is calculated
+
+    Test 10: Successful
+		------------------------------------------
+		Input:
+			Pace=valid pace min/Miles
+			Distance=valid distance in Miles
+		Results:
+			Correct pace is calculated
+
+		Test 11: Successful
+		------------------------------------------
+		Input:
+			Pace=valid pace in min/Km
+			Distance=pick an event
+		Results:
+			Correct pace is calculated
+
+    Test 12: Successful
+		------------------------------------------
+		Input:
+			Pace=valid pace in min/Miles
+			Distance=pick an event
+		Results:
+			Correct pace is calculated
 
 	Distance Calculation
 	--------------------
-	
+
+    Test 1: Time must be filled out
+    -------------------------------
+    Input:
+      Leave Time empty.
+      Leave Pace empty.
+    Results:
+      The message "Time must be filled out" appear.
+
+    Test 2: Pace must be filled out
+    -----------------------------------
+    Input:
+      Insert a valid time.
+      Leave Pace empty.
+    Results:
+      The message "Pace must be filled out" appear.
+
+    Test 3: Time must be a valid time
+		---------------------------------
+		Input:
+			Time=<whatever string or negative numbers in hour, minutes or seconds>
+			Pace=<valid pace>
+		Results:
+			The message "Time must be a valid time" appear.
+
+    Test 4: Pace must be a valid time
+		---------------------------------
+		Input:
+      Time=<time must be a valid time>
+			Pace=<whatever string or negative numbers in hour, minutes or seconds>
+		Results:
+			The message "Pace must be a valid time" appear.
+
+    Test 5: Pace is too slow
+    ------------------------
+    Input:
+      Time=<valid time>
+      Pace=<pace > 20 min/Km>
+    Results:
+      The message "Pace is too slow, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
+
+    Test 6: Pace is too fast
+    ------------------------
+    Input:
+      Time=<valid time>
+      Pace=<pace = 0 min/Km>
+    Results:
+      The message "Pace is too fast, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
+
+    Test 7: Time is too long
+		------------------------
+		Input:
+			Time=<hour>23, minutes>59, seconds>59>
+			Distance=<positive number>
+		Results:
+			The message "Time is too long, valid range is [0-23:59':59'']" appear.
+
+    Test 8: Successful
+    ------------------------------------------
+    Input:
+      Time=<valid time>
+      Pace=valid pace min/Km
+    Results:
+      Correct pace is calculated
+
+    Test 9: Successful
+    ------------------------------------------
+    Input:
+      Time=<valid time>
+      Pace=valid pace min/miles
+    Results:
+      Correct pace is calculated
+
+    Test 10: Successful
+    ------------------------------------------
+    Input:
+      Time=<valid time>
+      Pace=valid pace min/Km
+      Distance in miles
+    Results:
+      Correct pace is calculated
+
+    Test 11: Successful
+    ------------------------------------------
+    Input:
+      Time=<valid time>
+      Pace=valid pace min/miles
+      Distance in miles
+    Results:
+      Correct pace is calculated
