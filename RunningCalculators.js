@@ -190,6 +190,39 @@ function calculateTrainingZone() {
     }
 }
 
+function isValidTime(timeHours, timeMinutes, timeSeconds) {
+    if (timeHours == "" && timeMinutes == "" && timeSeconds == "") {
+        alert("Time must be filled out");
+        return false;
+    }
+
+    if (timeHours == "") {
+        timeHours=0;
+    }
+
+    if (timeMinutes == "") {
+        timeMinutes=0;
+    }
+
+    if (timeSeconds == "") {
+        timeSeconds=0;
+    }
+
+    if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
+        alert("Time must be a valid time");
+        return false;
+    }
+
+    if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
+        Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
+        Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
+        alert("Time must be a valid time in the range (0-23:59:59]");
+        return false;
+    }
+    
+    return true;
+}
+
 function isValidPaceCalculatorForm(formType) {
     if (formType == "time") {
         var distance = document.getElementById("distance").value;
@@ -269,32 +302,7 @@ function isValidPaceCalculatorForm(formType) {
         var paceMinutes = document.getElementById("paceMinutes").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
 
-        if (timeHours == "" && timeMinutes == "" && timeSeconds == "") {
-            alert("Time must be filled out");
-            return false;
-        }
-
-        if (timeHours == "") {
-            timeHours=0;
-        }
-
-        if (timeMinutes == "") {
-            timeMinutes=0;
-        }
-
-        if (timeSeconds == "") {
-            timeSeconds=0;
-        }
-
-        if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
-            alert("Time must be a valid time");
-            return false;
-        }
-
-        if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
-            Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
-            Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
-            alert("Time must be a valid time in the range (0-23:59:59]");
+        if (!isValidTime(timeHoursOldRace,timeMinutesOldRace,timeSecondsOldRace)) {
             return false;
         }
 
@@ -342,38 +350,7 @@ function isValidPaceCalculatorForm(formType) {
         var timeMinutes = document.getElementById("timeMinutes").value;
         var timeSeconds = document.getElementById("timeSeconds").value;
 
-        if (timeHours == "" && timeMinutes == "" && timeSeconds == "") {
-            alert("Time must be filled out");
-            return false;
-        }
-
-        if (timeHours == "") {
-            timeHours=0;
-        }
-
-        if (timeMinutes == "") {
-            timeMinutes=0;
-        }
-
-        if (timeSeconds == "") {
-            timeSeconds=0;
-        }
-
-        if (isNaN(timeHours) || isNaN(timeMinutes) || isNaN(timeSeconds)) {
-            alert("Time must be a valid time in the range (0-23:59:59]");
-            return false;
-        }
-
-        if (Number(timeHours) < 0 || Number(timeHours) > 23 ||
-            Number(timeMinutes) < 0 || Number(timeMinutes) > 59 ||
-            Number(timeSeconds) < 0 || Number(timeSeconds) > 59) {
-            alert("Time must be a valid time in the range (0-23:59:59]");
-            return false;
-        }
-
-        var timeInSeconds=Number(timeHours)*3600+Number(timeMinutes)*60+Number(timeSeconds);
-        if (Number(timeInSeconds) > 86389) {
-            alert("Time is too long, valid range is (0:0:0-23:59:59]");
+        if (!isValidTime(timeHoursOldRace,timeMinutesOldRace,timeSecondsOldRace)) {
             return false;
         }
 
@@ -773,38 +750,12 @@ function isValidRacePredictorForm() {
     var timeMinutesOldRace = document.getElementById("timeMinutesOldRace").value;
     var timeSecondsOldRace = document.getElementById("timeSecondsOldRace").value;
 
-    if (distanceOldRace == "") {
-        alert("Distance old race must be filled out");
-        return false;
-    }
-
-    if (isNaN(distanceOldRace)) {
-        alert("Distance old race must be a number");
-        return false;
-    }
-
-    if (distanceNewRace == "") {
-        alert("Distance new race must be filled out");
-        return false;
-    }
-
-    if (isNaN(distanceNewRace)) {
-        alert("Distance new race must be a number");
-        return false;
-    }
-
     if (distanceOldRace == distanceNewRace) {
         alert("Old and New distance must be different");
         return false;
     }
 
-    if (timeHoursOldRace == "" && timeMinutesOldRace == "" && timeSecondsOldRace == "") {
-        alert("Time old race must be filled out");
-        return false;
-    }
-
-    if (isNaN(timeHoursOldRace) || isNaN(timeMinutesOldRace) || isNaN(timeSecondsOldRace)) {
-        alert("Time old race must be a time");
+    if (!isValidTime(timeHoursOldRace,timeMinutesOldRace,timeSecondsOldRace)) {
         return false;
     }
 
@@ -825,6 +776,7 @@ function calculateNewRaceTime() {
 
         timeSecondsOldRace=Number(timeSecondsOldRace)+Number(timeMinutesOldRace*60);
         timeSecondsOldRace=Number(timeSecondsOldRace)+Number(timeHoursOldRace*3600);
+        alert("timeSecondsOldRace:" + timeSecondsOldRace);
 
         var estimatedTimeNewRaceValue=predictRaceTime(timeSecondsOldRace, distanceOldRace, distanceNewRace);
 
