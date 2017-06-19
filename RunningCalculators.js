@@ -381,10 +381,7 @@ function isValidPaceCalculatorForm(formType) {
     return true;
 }
 
-function isValidBodyMassIndexForm() {
-    var weight = document.getElementById("weight").value;
-    var height = document.getElementById("heightBMI").value;
-
+function isValidWeight(weight) {
     if (weight == "") {
         alert("Weight must be filled out");
         return false;
@@ -395,6 +392,15 @@ function isValidBodyMassIndexForm() {
         return false;
     }
 
+    if (Number(weight)<=0 || Number(weight)>250) {
+        alert("Weight must be a number in the range (0 - 250 Kg]");
+        return false;
+    }
+
+    return true;
+}
+
+function isValidHeight(height) {
     if (height == "") {
         alert("Height must be filled out");
         return false;
@@ -405,13 +411,25 @@ function isValidBodyMassIndexForm() {
         return false;
     }
 
-    if (weight == "") {
-        weight=0;
+    if (Number(height)<=0 || Number(height)>250) {
+        alert("Weight must be a number in the range (0 - 250 cm]");
+        return false;
     }
 
-    if (height == "") {
-        height=0;
-    }
+    return true;
+}
+
+function isValidBodyMassIndexForm() {
+    var weight = document.getElementById("weight").value;
+    var height = document.getElementById("heightBMI").value;
+
+    if (!isValidWeight(weight)) {
+        return false;
+    }     
+
+    if (!isValidHeight(height)) {
+        return false;
+    }     
 
     return true;
 }
@@ -519,19 +537,9 @@ function isValidBodyFatForm() {
     var neck = document.getElementById("neck").value;
     var waist = document.getElementById("waist").value;
     var hip = document.getElementById("hip").value;
-
-    if (height == "") {
-        alert("Height must be filled out");
+    
+    if (!isValidHeight(height)) {
         return false;
-    }
-
-    if (isNaN(height)) {
-        alert("Height must be a number");
-        return false;
-    }
-
-    if (height == "") {
-        height=0;
     }
 
     if (neck == "") {
