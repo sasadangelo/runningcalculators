@@ -528,4 +528,66 @@ Body Mass Index Calculator
         Height=176
     Results:
         Correct BMI is calculated
+
+Body Fat Calculator
+--------------------------
+    Test 1: Height must be filled out
+    ---------------------------------
+    Input:
+        Height=empty
+        Neck=empty
+        Waist=empty
+        Hip=empty
+    Results:
+        The message "Height must be filled out" appear.
+
+    Test 2: Neck must be filled out
+    -------------------------------
+    Input:
+        Height=176
+        Neck=empty
+        Waist=empty
+        Hip=empty
+    Results:
+        The message "Neck must be filled out" appear.
+
+    Test 3: Waist must be filled out
+    --------------------------------
+    Input:
+        Height=176
+        Neck=37
+        Waist=empty
+        Hip=empty
+    Results:
+        The message "Waist must be filled out" appear.
+
+    Test 4: Hip must be filled out
+    --------------------------------
+    Input:
+        Height=176
+        Neck=37
+        Waist=87
+        Hip=empty
+    Results:
+        The message "Hip must be filled out" appear.
+
+    Test 5: Height must be a positive number
+    ----------------------------------------
+    Input:
+        Height=string or negative value or 0
+        Neck=37
+        Waist=87
+        Hip=empty
+    Results:
+        The message "Height must be a positive number in the range (0 - 130 cm]" appear.
+
+    Test 5: Neck must be a positive number
+    ----------------------------------------
+    Input:
+        Height=176
+        Neck=string or negative value or 0
+        Waist=87
+        Hip=empty
+    Results:
+        The message "Neck must be a positive number in the range (0 - 100 cm]" appear.
         

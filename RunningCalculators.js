@@ -388,12 +388,12 @@ function isValidWeight(weight) {
     }
 
     if (isNaN(weight)) {
-        alert("Weight must be a number");
+        alert("Weight must be a positive number in the range (0 - 250 Kg]");
         return false;
     }
 
     if (Number(weight)<=0 || Number(weight)>250) {
-        alert("Weight must be a number in the range (0 - 250 Kg]");
+        alert("Weight must be a positive number in the range (0 - 250 Kg]");
         return false;
     }
 
@@ -407,12 +407,12 @@ function isValidHeight(height) {
     }
 
     if (isNaN(height)) {
-        alert("Height must be a number");
+        alert("Height must be a positive number in the range (0 - 250 cm]");
         return false;
     }
 
     if (Number(height)<=0 || Number(height)>250) {
-        alert("Weight must be a number in the range (0 - 250 cm]");
+        alert("Height must be a positive number in the range (0 - 250 cm]");
         return false;
     }
 
@@ -531,6 +531,62 @@ function calculateBodyMassIndex() {
     }
 }
 
+function isValidNeck(neck) {
+    if (neck == "") {
+        alert("Neck must be filled out");
+        return false;
+    }
+
+    if (isNaN(neck)) {
+        alert("Neck must be a positive number in the range (0 - 100 cm]");
+        return false;
+    }
+
+    if (Number(neck)<=0 || Number(neck)>100) {
+        alert("Neck must be a positive number in the range (0 - 100 cm]");
+        return false;
+    }
+
+    return true; 
+}
+
+function isValidWaist(waist) {
+    if (waist == "") {
+        alert("Waist must be filled out");
+        return false;
+    }
+
+    if (isNaN(waist)) {
+        alert("Waist must be a positive number in the range (0 - 200 cm]");
+        return false;
+    }
+
+    if (Number(waist)<=0 || Number(waist)>200) {
+        alert("Neck must be a positive number in the range (0 - 200 cm]");
+        return false;
+    }
+
+    return true; 
+}
+
+function isValidHip(hip) {
+    if (hip == "") {
+        alert("Hip must be filled out");
+        return false;
+    }
+
+    if (isNaN(hip)) {
+        alert("Hip must be a positive number in the range (0 - 200 cm]");
+        return false;
+    }
+
+    if (Number(hip)<=0 || Number(hip)>200) {
+        alert("Hip must be a positive number in the range (0 - 200 cm]");
+        return false;
+    }
+
+    return true; 
+}
 
 function isValidBodyFatForm() {
     var height = document.getElementById("heightBF").value;
@@ -542,48 +598,16 @@ function isValidBodyFatForm() {
         return false;
     }
 
-    if (neck == "") {
-        alert("Neck must be filled out");
+    if (!isValidNeck(neck)) {
         return false;
     }
 
-    if (isNaN(neck)) {
-        alert("Neck must be a number");
+    if (!isValidWaist(waist)) {
         return false;
     }
 
-
-    if (neck == "") {
-        neck=0;
-    }
-
-    if (waist == "") {
-        alert("Waist must be filled out");
+    if (!isValidHip(hip)) {
         return false;
-    }
-
-    if (isNaN(waist)) {
-        alert("Waist must be a number");
-        return false;
-    }
-
-
-    if (waist == "") {
-        waist=0;
-    }
-
-    if (hip == "") {
-        alert("Hip must be filled out");
-        return false;
-    }
-
-    if (isNaN(hip)) {
-        alert("Hip must be a number");
-        return false;
-    }
-
-    if (hip == "") {
-        hip=0;
     }
 
     return true;
