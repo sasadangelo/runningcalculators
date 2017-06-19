@@ -302,7 +302,7 @@ function isValidPaceCalculatorForm(formType) {
         var paceMinutes = document.getElementById("paceMinutes").value;
         var paceSeconds = document.getElementById("paceSeconds").value;
 
-        if (!isValidTime(timeHoursOldRace,timeMinutesOldRace,timeSecondsOldRace)) {
+        if (!isValidTime(timeHours,timeMinutes,timeSeconds)) {
             return false;
         }
 
@@ -350,7 +350,7 @@ function isValidPaceCalculatorForm(formType) {
         var timeMinutes = document.getElementById("timeMinutes").value;
         var timeSeconds = document.getElementById("timeSeconds").value;
 
-        if (!isValidTime(timeHoursOldRace,timeMinutesOldRace,timeSecondsOldRace)) {
+        if (!isValidTime(timeHours,timeMinutes,timeSeconds)) {
             return false;
         }
 
@@ -650,25 +650,7 @@ function isValidTrainingPaceForm() {
     var timeRaceMinutes = document.getElementById("timeRaceMinutes").value;
     var timeRaceSeconds = document.getElementById("timeRaceSeconds").value;
 
-    if (timeRaceHours == "" && timeRaceMinutes == "" && timeRaceSeconds == "") {
-        alert("Time must be filled out");
-        return false;
-    }
-
-    if (timeRaceHours == "") {
-        timeRaceHours=0;
-    }
-
-    if (timeRaceMinutes == "") {
-        timeRaceMinutes=0;
-    }
-
-    if (timeRaceSeconds == "") {
-        timeRaceSeconds=0;
-    }
-
-    if (isNaN(timeRaceHours) || isNaN(timeRaceMinutes) || isNaN(timeRaceSeconds)) {
-        alert("Time must be a valid time");
+    if (!isValidTime(timeRaceHours,timeRaceMinutes,timeRaceSeconds)) {
         return false;
     }
 
@@ -699,17 +681,19 @@ function calculateTrainingPace() {
         var timeRaceSeconds = document.getElementById("timeRaceSeconds").value;
 
         timeRaceSeconds=Number(timeRaceSeconds)+Number(60*timeRaceMinutes)+Number(3600*timeRaceHours);
-        var paceSeconds=Math.floor(timeRaceSeconds/distanceRaceValue);
+        //var paceSeconds=Math.floor(timeRaceSeconds/distanceRaceValue);
 
-        var pace10KSecondsValue;
+        var time10KSecondsValue;
         if (distanceRaceValue == "42.125")
-            pace10KSecondsValue=predictRaceTime(paceSeconds,42.125,10);
+            time10KSecondsValue=predictRaceTime(timeRaceSeconds,42.125,10);
         else if (distanceRaceValue == "21.0324")
-            pace10KSecondsValue=predictRaceTime(paceSeconds,21.0324,10);
+            time10KSecondsValue=predictRaceTime(timeRaceSeconds,21.0324,10);
         else if (distanceRaceValue == "10")
-            pace10KSecondsValue=paceSeconds;
+            time10KSecondsValue=timeRaceSeconds;
         else
-            pace10KSecondsValue=predictRaceTime(paceSeconds,5,10);;
+            time10KSecondsValue=predictRaceTime(timeRaceSeconds,5,10);
+        var pace10KSecondsValue=Math.floor(time10KSecondsValue/10);
+        
 
         var longRunValueLow=convertPaceFromSecondsToTime(pace10KSecondsValue+60);
         var longRunValueHigh=convertPaceFromSecondsToTime(pace10KSecondsValue+50);
@@ -776,7 +760,6 @@ function calculateNewRaceTime() {
 
         timeSecondsOldRace=Number(timeSecondsOldRace)+Number(timeMinutesOldRace*60);
         timeSecondsOldRace=Number(timeSecondsOldRace)+Number(timeHoursOldRace*3600);
-        alert("timeSecondsOldRace:" + timeSecondsOldRace);
 
         var estimatedTimeNewRaceValue=predictRaceTime(timeSecondsOldRace, distanceOldRace, distanceNewRace);
 
