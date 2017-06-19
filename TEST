@@ -174,269 +174,316 @@ Heart Rate Zones Test
 
 Pace Calculator
 ---------------
-	Pace Calculation
-	----------------
-		Test 1: Time must be filled out
-		-------------------------------
-		Input:
-			Leave Time empty.
-			Leave Distance empty.
-		Results:
-			The message "Time must be filled out" appear.
+    Pace Calculation
+    ----------------
+        Test 1: Time must be filled out
+        -------------------------------
+        Input:
+            Leave Time empty.
+            Leave Distance empty.
+        Results:
+            The message "Time must be filled out" appear.
 
-		Test 2: Distance must be filled out
-		-----------------------------------
-		Input:
-			Insert a valid time in Time.
-			Leave Distance empty.
-		Results:
-			The message "Distance must be filled out" appear.
+        Test 2: Distance must be filled out
+        -----------------------------------
+        Input:
+            Insert a valid time in Time.
+            Leave Distance empty.
+        Results:
+            The message "Distance must be filled out" appear.
 
-		Test 3: Time must be a valid time
-		---------------------------------
-		Input:
-			Time=<whatever string or negative numbers in hour, minutes or seconds or
+        Test 3: Time must be a valid time
+        ---------------------------------
+        Input:
+            Time=<whatever string or negative numbers in hour, minutes or seconds or
             hours>23 and minutes>59 and seconds>59>
-			Distance=<positive number>
-		Results:
-			The message "Time must be a valid time" appear.
+            Distance=<positive number>
+        Results:
+            The message "Time must be a valid time" appear.
 
-		Test 4: Distance must be a positive number
-		------------------------------------------
-		Input:
-			Time=valid time
-			Distance=<string or negative number or 0>
-		Results:
-			The message "Distance must be a positive number" appear.
+        Test 4: Distance must be a positive number
+        ------------------------------------------
+        Input:
+            Time=valid time
+            Distance=<string or negative number or 0>
+        Results:
+            The message "Distance must be a positive number" appear.
 
-		Test 6: Distance is too big
-		------------------------------------------
-		Input:
-			Time=valid time
-			Distance=<positive number > 150 Km>
-		Results:
-			The message "Distance is too long, valid range is (0-150Km]" appear.
+        Test 6: Distance is too big
+        ------------------------------------------
+        Input:
+            Time=valid time
+            Distance=<positive number > 150 Km>
+        Results:
+            The message "Distance is too long, valid range is (0-150Km]" appear.
 
-		Test 7: Successful
-		------------------------------------------
-		Input:
-			Time=valid time
-			Distance=valid distance in Km
-		Results:
-			Correct pace is calculated
+        Test 7: Successful
+        ------------------------------------------
+        Input:
+            Time=valid time
+            Distance=valid distance in Km
+        Results:
+            Correct pace is calculated
 
-		Test 8: Successful
-		------------------------------------------
-		Input:
-			Time=valid time
-			Distance=valid distance in miles
-		Results:
-			Correct pace is calculated
+        Test 8: Successful
+        ------------------------------------------
+        Input:
+            Time=valid time
+            Distance=valid distance in miles
+        Results:
+            Correct pace is calculated
 
-		Test 9: Successful
-		------------------------------------------
-		Input:
-			Time=valid time
-			Distance=pick an event
-		Results:
-			Correct pace is calculated
+        Test 9: Successful
+        ------------------------------------------
+        Input:
+            Time=valid time
+            Distance=pick an event
+        Results:
+            Correct pace is calculated
 
-	Time Calculation
-	----------------
-    Test 1: Distance must be filled out
-    -------------------------------
-    Input:
-      Leave Pace empty.
-      Leave Distance empty.
-    Results:
-      The message "Distance must be filled out" appear.
+    Time Calculation
+    ----------------
+        Test 1: Distance must be filled out
+        -------------------------------
+        Input:
+            Leave Pace empty.
+            Leave Distance empty.
+        Results:
+            The message "Distance must be filled out" appear.
 
-    Test 2: Pace must be filled out
-    -----------------------------------
-    Input:
-      Insert a valid distance.
-      Leave Pace empty.
-    Results:
-      The message "Pace must be filled out" appear.
+        Test 2: Pace must be filled out
+        -----------------------------------
+        Input:
+            Insert a valid distance.
+            Leave Pace empty.
+        Results:
+            The message "Pace must be filled out" appear.
 
-    Test 3: Distance must be a positive number
-		------------------------------------------
-		Input:
-			Pace=valid pace
-			Distance=<string or negative number or 0>
-		Results:
-			The message "Distance must be a positive number" appear.
+        Test 3: Distance must be a positive number
+        ------------------------------------------
+        Input:
+            Pace=valid pace
+            Distance=<string or negative number or 0>
+        Results:
+            The message "Distance must be a positive number" appear.
 
-    Test 4: Pace must be a valid time
-		---------------------------------
-		Input:
-			Pace=<whatever string or negative numbers in hour, minutes or seconds or
+        Test 4: Pace must be a valid time
+        ---------------------------------
+        Input:
+            Pace=<whatever string or negative numbers in hour, minutes or seconds or
             hours>23 or minutes>59 or seconds>59>
-			Distance=<positive number>
-		Results:
-			The message "Time must be a valid time" appear.
+            Distance=<positive number>
+        Results:
+            The message "Time must be a valid time" appear.
 
-    Test 5: Pace is too slow
-		------------------------
-		Input:
-			Pace=<pace > 20 min/Km or 32 min/miles>
-			Distance=<positive number>
-		Results:
-			The message "Pace is too slow, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
+        Test 5: Pace is too slow
+        ------------------------
+        Input:
+            Pace=<pace > 20 min/Km or 32 min/miles>
+            Distance=<positive number>
+        Results:
+            The message "Pace is too slow, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
 
-    Test 6: Pace is too fast
-		------------------------
-		Input:
-			Pace=<pace = 0 min/Km>
-			Distance=<positive number>
-		Results:
-			The message "Pace is too fast, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
+        Test 6: Pace is too fast
+        ------------------------
+        Input:
+            Pace=<pace = 0 min/Km>
+            Distance=<positive number>
+        Results:
+            The message "Pace is too fast, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
 
-		Test 7: Distance is too big
-		------------------------------------------
-		Input:
-			Pace=valid pace
-			Distance=<positive number > 150 Km>
-		Results:
-			The message "Distance is too long, valid range is (0-150Km]" appear.
+        Test 7: Distance is too big
+        ------------------------------------------
+        Input:
+            Pace=valid pace
+            Distance=<positive number > 150 Km>
+        Results:
+            The message "Distance is too long, valid range is (0-150Km]" appear.
 
-		Test 7: Successful
-		------------------------------------------
-		Input:
-			Pace=valid pace min/Km
-			Distance=valid distance in Km
-		Results:
-			Correct pace is calculated
+        Test 8: Successful
+        ------------------------------------------
+        Input:
+            Pace=valid pace min/Km
+            Distance=valid distance in Km
+        Results:
+            Correct pace is calculated
 
-		Test 8: Successful
-		------------------------------------------
-		Input:
-			Pace=valid pace min/miles
-			Distance=valid distance in Km
-		Results:
-			Correct pace is calculated
+        Test 9: Successful
+        ------------------------------------------
+        Input:
+            Pace=valid pace min/miles
+            Distance=valid distance in Km
+        Results:
+            Correct pace is calculated
 
-    Test 9: Successful
-		------------------------------------------
-		Input:
-			Pace=valid pace min/Km
-			Distance=valid distance in Miles
-		Results:
-			Correct pace is calculated
+        Test 10: Successful
+        ------------------------------------------
+        Input:
+            Pace=valid pace min/Km
+            Distance=valid distance in Miles
+        Results:
+            Correct pace is calculated
 
-    Test 10: Successful
-		------------------------------------------
-		Input:
-			Pace=valid pace min/Miles
-			Distance=valid distance in Miles
-		Results:
-			Correct pace is calculated
+        Test 11: Successful
+        ------------------------------------------
+        Input:
+            Pace=valid pace min/Miles
+            Distance=valid distance in Miles
+        Results:
+            Correct pace is calculated
 
-		Test 11: Successful
-		------------------------------------------
-		Input:
-			Pace=valid pace in min/Km
-			Distance=pick an event
-		Results:
-			Correct pace is calculated
+        Test 12: Successful
+        ------------------------------------------
+        Input:
+            Pace=valid pace in min/Km
+            Distance=pick an event
+        Results:
+            Correct pace is calculated
 
-    Test 12: Successful
-		------------------------------------------
-		Input:
-			Pace=valid pace in min/Miles
-			Distance=pick an event
-		Results:
-			Correct pace is calculated
+        Test 13: Successful
+        ------------------------------------------
+        Input:
+            Pace=valid pace in min/Miles
+            Distance=pick an event
+        Results:
+            Correct pace is calculated
 
-	Distance Calculation
-	--------------------
+    Distance Calculation
+    --------------------
+        Test 1: Time must be filled out
+        -------------------------------
+        Input:
+            Leave Time empty.
+            Leave Pace empty.
+        Results:
+            The message "Time must be filled out" appear.
 
-    Test 1: Time must be filled out
-    -------------------------------
-    Input:
-      Leave Time empty.
-      Leave Pace empty.
-    Results:
-      The message "Time must be filled out" appear.
+        Test 2: Pace must be filled out
+        -----------------------------------
+        Input:
+            Insert a valid time.
+            Leave Pace empty.
+        Results:
+            The message "Pace must be filled out" appear.
 
-    Test 2: Pace must be filled out
-    -----------------------------------
-    Input:
-      Insert a valid time.
-      Leave Pace empty.
-    Results:
-      The message "Pace must be filled out" appear.
+        Test 3: Time must be a valid time
+        ---------------------------------
+        Input:
+            Time=<whatever string or negative numbers in hour, minutes or seconds>
+            Pace=<valid pace>
+        Results:
+            The message "Time must be a valid time" appear.
 
-    Test 3: Time must be a valid time
-		---------------------------------
-		Input:
-			Time=<whatever string or negative numbers in hour, minutes or seconds>
-			Pace=<valid pace>
-		Results:
-			The message "Time must be a valid time" appear.
+        Test 4: Pace must be a valid time
+        ---------------------------------
+        Input:
+            Time=<time must be a valid time>
+            Pace=<whatever string or negative numbers in hour, minutes or seconds>
+        Results:
+            The message "Pace must be a valid time" appear.
 
-    Test 4: Pace must be a valid time
-		---------------------------------
-		Input:
-      Time=<time must be a valid time>
-			Pace=<whatever string or negative numbers in hour, minutes or seconds>
-		Results:
-			The message "Pace must be a valid time" appear.
+        Test 5: Pace is too slow
+        ------------------------
+        Input:
+            Time=<valid time>
+            Pace=<pace > 20 min/Km>
+        Results:
+            The message "Pace is too slow, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
 
-    Test 5: Pace is too slow
-    ------------------------
-    Input:
-      Time=<valid time>
-      Pace=<pace > 20 min/Km>
-    Results:
-      The message "Pace is too slow, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
+        Test 6: Pace is too fast
+        ------------------------
+        Input:
+            Time=<valid time>
+            Pace=<pace = 0 min/Km>
+        Results:
+            The message "Pace is too fast, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
 
-    Test 6: Pace is too fast
-    ------------------------
-    Input:
-      Time=<valid time>
-      Pace=<pace = 0 min/Km>
-    Results:
-      The message "Pace is too fast, valid range is (0-20 min/Km] or (0-32 min/Miles]" appear.
+        Test 7: Time is too long
+        ------------------------
+        Input:
+            Time=<hour>23, minutes>59, seconds>59>
+            Distance=<positive number>
+        Results:
+            The message "Time is too long, valid range is [0-23:59':59'']" appear.
 
-    Test 7: Time is too long
-		------------------------
-		Input:
-			Time=<hour>23, minutes>59, seconds>59>
-			Distance=<positive number>
-		Results:
-			The message "Time is too long, valid range is [0-23:59':59'']" appear.
+        Test 8: Successful
+        ------------------------------------------
+        Input:
+            Time=<valid time>
+            Pace=valid pace min/Km
+        Results:
+            Correct pace is calculated
 
-    Test 8: Successful
-    ------------------------------------------
-    Input:
-      Time=<valid time>
-      Pace=valid pace min/Km
-    Results:
-      Correct pace is calculated
+        Test 9: Successful
+        ------------------------------------------
+        Input:
+            Time=<valid time>
+            Pace=valid pace min/miles
+        Results:
+            Correct pace is calculated
 
-    Test 9: Successful
-    ------------------------------------------
-    Input:
-      Time=<valid time>
-      Pace=valid pace min/miles
-    Results:
-      Correct pace is calculated
+        Test 10: Successful
+        ------------------------------------------
+        Input:
+            Time=<valid time>
+            Pace=valid pace min/Km
+            Distance in miles
+        Results:
+            Correct pace is calculated
 
-    Test 10: Successful
-    ------------------------------------------
-    Input:
-      Time=<valid time>
-      Pace=valid pace min/Km
-      Distance in miles
-    Results:
-      Correct pace is calculated
+        Test 11: Successful
+        ------------------------------------------
+        Input:
+            Time=<valid time>
+            Pace=valid pace min/miles
+            Distance in miles
+        Results:
+            Correct pace is calculated
 
-    Test 11: Successful
-    ------------------------------------------
-    Input:
-      Time=<valid time>
-      Pace=valid pace min/miles
-      Distance in miles
-    Results:
-      Correct pace is calculated
+Race Predictor
+---------------
+        Test 1: Time must be filled out
+        -------------------------------
+        Input:
+            Old Distance=5K
+            New Distance=10K
+            Leave Time empty.
+        Results:
+            The message "Time must be filled out" appear.
+
+        Test 2: Time must be a valid time
+        ---------------------------------
+        Input:
+            Old Distance=5K
+            New Distance=10K
+            Time=<whatever string or negative numbers in hour, minutes or seconds>
+        Results:
+            The message "Time must be a valid time" appear.
+
+        Test 3: Time must be a valid time
+        ---------------------------------
+        Input:
+            Old Distance=5K
+            New Distance=10K
+            Time=<hour>23, minutes>59, seconds>59>
+        Results:
+            The message "Time must be a valid time" appear.
+            
+        Test 4: Distance must be different
+        ----------------------------------
+        Input:
+            Old Distance=5K
+            New Distance=5K
+            Time=<valid time>
+        Results:
+            The message "Distance must be different" appear.
+
+        Test 5: Successful
+        ------------------------------------------
+        Input:
+            Old Distance=different combination
+            New Distance=different combination
+            Time=<valid time>
+        Results:
+            Correct race prediction is calculated
+            
