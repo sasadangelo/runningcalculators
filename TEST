@@ -486,4 +486,46 @@ Race Predictor
             Time=<valid time>
         Results:
             Correct race prediction is calculated
-            
+
+Body Mass Index Calculator
+--------------------------
+    Test 1: Weight must be filled out
+    ---------------------------------
+    Input:
+        Weight=empty
+        Height=empty
+    Results:
+        The message "Weight must be filled out" appear.
+
+    Test 2: Height must be filled out
+    ---------------------------------
+    Input:
+        Weight=73
+        Height=empty
+    Results:
+        The message "Height must be filled out" appear.
+
+    Test 3: Weight must be a number in the range (0 - 250 Kg]
+    ---------------------------------------------------------
+    Input:
+        Weight=a string or negative number or number >250
+        Height=176
+    Results:
+        The message "Weight must be filled out" appear.
+
+    Test 4: Height must be a number in the range (0 - 250 cm]
+    ---------------------------------------------------------
+    Input:
+        Weight=73
+        Height=a string or negative number or number >250
+    Results:
+        The message "Weight must be filled out" appear.
+
+    Test 5: Successful
+    ------------------------------------------
+    Input:
+        Weight=73
+        Height=176
+    Results:
+        Correct BMI is calculated
+        
