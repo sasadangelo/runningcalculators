@@ -219,7 +219,7 @@ function isValidTime(timeHours, timeMinutes, timeSeconds) {
         alert("Time must be a valid time in the range (0-23:59:59]");
         return false;
     }
-    
+
     return true;
 }
 
@@ -425,11 +425,11 @@ function isValidBodyMassIndexForm() {
 
     if (!isValidWeight(weight)) {
         return false;
-    }     
+    }
 
     if (!isValidHeight(height)) {
         return false;
-    }     
+    }
 
     return true;
 }
@@ -547,7 +547,7 @@ function isValidNeck(neck) {
         return false;
     }
 
-    return true; 
+    return true;
 }
 
 function isValidWaist(waist) {
@@ -566,7 +566,7 @@ function isValidWaist(waist) {
         return false;
     }
 
-    return true; 
+    return true;
 }
 
 function isValidHip(hip) {
@@ -585,7 +585,7 @@ function isValidHip(hip) {
         return false;
     }
 
-    return true; 
+    return true;
 }
 
 function isValidBodyFatForm() {
@@ -593,7 +593,7 @@ function isValidBodyFatForm() {
     var neck = document.getElementById("neck").value;
     var waist = document.getElementById("waist").value;
     var hip = document.getElementById("hip").value;
-    
+
     if (!isValidHeight(height)) {
         return false;
     }
@@ -725,12 +725,14 @@ function calculateTrainingPace() {
         else
             time10KSecondsValue=predictRaceTime(timeRaceSeconds,5,10);
         var pace10KSecondsValue=Math.floor(time10KSecondsValue/10);
-        
+
 
         var longRunValueLow=convertPaceFromSecondsToTime(pace10KSecondsValue+60);
         var longRunValueHigh=convertPaceFromSecondsToTime(pace10KSecondsValue+50);
         var slowRunValueLow=convertPaceFromSecondsToTime(pace10KSecondsValue+50);
         var slowRunValueHigh=convertPaceFromSecondsToTime(pace10KSecondsValue+45);
+        var longFastRunValueLow=convertPaceFromSecondsToTime(pace10KSecondsValue+40);
+        var longFastRunValueHigh=convertPaceFromSecondsToTime(pace10KSecondsValue+30);
         // Tempo Run Start
         var steadyRunValueLow=convertPaceFromSecondsToTime(pace10KSecondsValue+25);
         var steadyRunValueHigh=convertPaceFromSecondsToTime(pace10KSecondsValue+20);
@@ -749,6 +751,7 @@ function calculateTrainingPace() {
 
         document.getElementById("longRunValue").innerHTML=longRunValueHigh + " - " + longRunValueLow;
         document.getElementById("slowRunValue").innerHTML=slowRunValueHigh + " - " + slowRunValueLow;
+        document.getElementById("longFastRunValue").innerHTML=longFastRunValueHigh + " - " + longFastRunValueLow;
         document.getElementById("steadyRunValue").innerHTML=steadyRunValueHigh + " - " + steadyRunValueLow;
         document.getElementById("tempoRunValue").innerHTML=tempoRunValueHigh + " - " + tempoRunValueLow;
         document.getElementById("pace10KValue").innerHTML=convertPaceFromSecondsToTime(pace10KSecondsValue);
@@ -756,6 +759,10 @@ function calculateTrainingPace() {
         document.getElementById("longRepeatValue").innerHTML=longRepeatValueHigh + " - " + longRepeatValueLow;
         document.getElementById("mediumRepeatValue").innerHTML=mediumRepeatValueHigh + " - " + mediumRepeatValueLow;
         document.getElementById("shortRepeatValue").innerHTML=shortRepeatValueHigh + " - " + shortRepeatValueLow;
+        document.getElementById("estimatedThresholdPaceLabel").style.display="inline";
+        document.getElementById("estimatedThresholdPaceValue").style.display="inline";
+        document.getElementById("estimatedThresholdPaceValue").innerHTML=convertPaceFromSecondsToTime(pace10KSecondsValue);
+
     }
 }
 

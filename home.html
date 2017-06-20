@@ -29,12 +29,12 @@
                 <p>
                     <em>
                         Calculate your training zone inserting your max and rest heart rate. The calculator will compute the training zone using the
-                        <a href="http://www.topendsports.com/fitness/karvonen-formula.htm">Karvonen formula</a>. The resting heart rate is best measured 
-                        when you first wake up in the morning, before your feet leave the sheets. Grab a clock or watch with a second hand, then find your 
-                        pulse and count how many beats occur within 60 seconds. The shortcut to this method is to count the number of beats in 20 seconds, 
-                        and then to multiply that number by 3. You can determine your maximum heart rate by putting on your running shoes, firing up your 
-                        heart rate monitor and heading out into the real world. You won't need fancy laboratory equipment for the field test but you’ll still 
-                        get an accurate and personal estimation of your maximum heart rate. The premise is simple: you warm up properly and then do an 
+                        <a href="http://www.topendsports.com/fitness/karvonen-formula.htm">Karvonen formula</a>. The resting heart rate is best measured
+                        when you first wake up in the morning, before your feet leave the sheets. Grab a clock or watch with a second hand, then find your
+                        pulse and count how many beats occur within 60 seconds. The shortcut to this method is to count the number of beats in 20 seconds,
+                        and then to multiply that number by 3. You can determine your maximum heart rate by putting on your running shoes, firing up your
+                        heart rate monitor and heading out into the real world. You won't need fancy laboratory equipment for the field test but you'll still
+                        get an accurate and personal estimation of your maximum heart rate. The premise is simple: you warm up properly and then do an
                         exercise that brings you close to your maximum effort. For an example of field test, see the <a href="https://www.polar.com/blog/calculate-maximum-heart-rate-running/">end of this article</a>.
                         If you do not know your maximum heart rate you can select the No option in the radio button and enter your age. The calculator will
                         estimate your maximum heart rate using the <a href="https://en.wikipedia.org/wiki/Heart_rate#Maximum_heart_rate">Haskell & Foxit formula (220-age)</a>.
@@ -42,15 +42,15 @@
                 </p>
                 <p/>
                 <p>Do you know your max heart rate?</p>
-                    <input type="radio" id="radioKnowMaxHeartRateYes" name="radioKnowMaxHeartRate" value="Yes" checked onclick="knowMaxHeartRate(this)"> Yes<br>
-                    <input type="radio" id="radioKnowMaxHeartRateNo" name="radioKnowMaxHeartRate" value="No" onclick="knowMaxHeartRate(this)"> No<br>
+                <input type="radio" id="radioKnowMaxHeartRateYes" name="radioKnowMaxHeartRate" value="Yes" checked onclick="knowMaxHeartRate(this)"> Yes<br>
+                <input type="radio" id="radioKnowMaxHeartRateNo" name="radioKnowMaxHeartRate" value="No" onclick="knowMaxHeartRate(this)"> No<br>
 
-                    <p id="maxHeartRateId">Max Heart Rate: <input type="text" id="maxHeartRate" name="maxHeartRate" placeholder="0" class="numberField"></p>
-                    <p id="ageId" style="display:none">Age: <input type="text" id="age" name="age" placeholder="0" class="numberField"></p>
-                    <p>Rest Heart Rate: <input type="text" id="restHeartRate" name="restHeartRate" placeholder="0" class="numberField"></p>
-                    <p><input class="button" type="submit" value="Calculate Heart Zones" onclick="calculateTrainingZone()"></p>
-                    <p id="estimatedMaxHeartRateLabel">Max Heart Rate:</p>
-                    <p id="estimatedMaxHeartRateValue"/>
+                <p id="maxHeartRateId">Max Heart Rate: <input type="text" id="maxHeartRate" name="maxHeartRate" placeholder="0" class="numberField"></p>
+                <p id="ageId" style="display:none">Age: <input type="text" id="age" name="age" placeholder="0" class="numberField"></p>
+                <p>Rest Heart Rate: <input type="text" id="restHeartRate" name="restHeartRate" placeholder="0" class="numberField"></p>
+                <p><input class="button" type="submit" value="Calculate Heart Zones" onclick="calculateTrainingZone()"></p>
+                <p id="estimatedMaxHeartRateLabel">Max Heart Rate:</p>
+                <p id="estimatedMaxHeartRateValue"/>
                 <p/>
                 <table id="zoneTable">
                     <tr>
@@ -204,7 +204,9 @@
                     <p>
                         <em>
                             Calculate how fast you should run the different components of a training week. Just plug in a recent race distance and time
-                            and click 'Calculate Training Pace'.
+                            and click 'Calculate Training Pace'. This estimation is based on information reported in Orlando Pizzolato (two time New
+                            York Marathon Winner in the middle of 80s) book <a href="https://www.amazon.it/correre-secondo-orlando-pizzolato/dp/B00E7P71QA">
+                            Correre secondo Orlando Pizzolato. Tutta l'esperienza e la passione di una vita di corsa</a>.
                         </em>
                     </p>
                     <p>Distance:
@@ -223,43 +225,40 @@
                     <p>
                         <input class="button" type="submit" value="Calculate Training Pace" onclick="calculateTrainingPace()">
                     </p>
+                    <p id="estimatedThresholdPaceLabel">Threshold Pace:</p>
+                    <p id="estimatedThresholdPaceValue"/>
+                    <p/>
                     <table id="trainingPaceTable">
                         <tr>
-                            <th colspan="2">Training Paces</th>
+                            <th colspan="4">Training Paces</th>
                         </tr>
                         <tr>
                             <td><p id="longRunLabel">Long Run: </p></td>
                             <td><p id="longRunValue"/></td>
-                        </tr>
-                        <tr>
                             <td><p id="slowRunLabel">Slow Run: </p></td>
                             <td><p id="slowRunValue"/></td>
                         </tr>
                         <tr>
+                            <td><p id="longFastRunLabel">Long (Faster) Run: </p></td>
+                            <td><p id="longFastRunValue"/></td>
                             <td><p id="steadyRunLabel">Steady Run: </p></td>
                             <td><p id="steadyRunValue"/></td>
                         </tr>
                         <tr>
                             <td><p id="tempoRunLabel">Tempo Run: </p></td>
                             <td><p id="tempoRunValue"/></td>
-                        </tr>
-                        <tr>
-                            <td><p id="pace10KLabel">Anaerobic Threshold: </p></td>
+                            <td><p id="pace10KLabel">Threshold Pace: </p></td>
                             <td><p id="pace10KValue"/></td>
                         </tr>
                         <tr>
                             <td><p id="intervalTrainingLabel">Interval Training: </p></td>
                             <td><p id="intervalTrainingValue"/></td>
-                        </tr>
-                        <tr>
                             <td><p id="longRepeatLabel">Long Repeat: </p></td>
                             <td><p id="longRepeatValue"/></td>
                         </tr>
                         <tr>
                             <td><p id="mediumRepeatLabel">Medium Repeat: </p></td>
                             <td><p id="mediumRepeatValue"/></td>
-                        </tr>
-                        <tr>
                             <td><p id="shortRepeatLabel">Short Repeat: </p></td>
                             <td><p id="shortRepeatValue"/></td>
                         </tr>
@@ -272,7 +271,7 @@
                     <h2>Body Mass Index</h2>
                     <p>
                         <em>
-                            Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. 
+                            Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.
                         </em>
                     </p>
                     <p>Weight (Kg): <input type="text" id="weight" name="weight" placeholder="0" class="numberField"></p>

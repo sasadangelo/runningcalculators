@@ -281,36 +281,20 @@ table#trainingPaceTable {
 }
 
 #trainingPaceTable tr:nth-child(3) {
-    background-color: #037AE2;
-    color: #ffffff;
-}
-
-#trainingPaceTable tr:nth-child(4) {
     background-color: #07E5E5;
 }
 
-#trainingPaceTable tr:nth-child(5) {
-    background-color: #0BE880;
-}
-
-#trainingPaceTable tr:nth-child(6) {
+#trainingPaceTable tr:nth-child(4) {
     background-color: #0FEB1D;
 }
 
-#trainingPaceTable tr:nth-child(7) {
-    background-color: #6CEE13;
-}
-
-#trainingPaceTable tr:nth-child(8) {
+#trainingPaceTable tr:nth-child(5) {
     background-color: #D6F118;
 }
 
-#trainingPaceTable tr:nth-child(9) {
-    background-color: #F4A91C;
-}
-
-#trainingPaceTable tr:nth-child(10) {
+#trainingPaceTable tr:nth-child(6) {
     background-color: #F74921;
+    color: #ffffff;
 }
 
 p#bodyMassIndexLabel {
@@ -348,6 +332,19 @@ p#estimatedMaxHeartRateValue {
 }
 
 #estimatedMaxHeartRateLabel {
+    color: #555555;
+    font-weight: bold;
+}
+
+p#estimatedThresholdPaceLabel {
+    display: none;
+}
+
+p#estimatedThresholdPaceValue {
+    display: none;
+}
+
+#estimatedThresholdPaceLabel {
     color: #555555;
     font-weight: bold;
 }
