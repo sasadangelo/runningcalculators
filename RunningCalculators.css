@@ -209,6 +209,42 @@ table#zonePercentageTable {
     background-color: #ffdc51;
 }
 
+table#zoneTrainingTable {
+    font-family: arial, sans-serif;
+    //float: left;
+    border-collapse: collapse;
+}
+
+#zoneTrainingTable td, #zoneTrainingTable th {
+    border: 1px solid #ffffff;
+    text-align: center;
+    padding: 8px;
+}
+
+#zoneTrainingTable tr:nth-child(1) {
+    background-color: #ffffff;
+}
+
+#zoneTrainingTable tr:nth-child(2) {
+    background-color: #f74921;
+}
+
+#zoneTrainingTable tr:nth-child(3) {
+    background-color: #f96e2d;
+}
+
+#zoneTrainingTable tr:nth-child(4) {
+    background-color: #fb9339;
+}
+
+#zoneTrainingTable tr:nth-child(5) {
+    background-color: #fdb745;
+}
+
+#zoneTrainingTable tr:nth-child(6) {
+    background-color: #ffdc51;
+}
+
 #zone5label,
 #zone4label,
 #zone3label,

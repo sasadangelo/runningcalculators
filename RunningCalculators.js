@@ -187,6 +187,23 @@ function calculateTrainingZone() {
         document.getElementById("value55").innerHTML=value55HeartRate;
         document.getElementById("value50").innerHTML=zone1HeartRate;
         document.getElementById("zonePercentageTable").style.display="block";
+
+        var value92HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*92/100));
+        var value93HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*93/100));
+        var value98HeartRate=Math.floor(Number(restHeartRate)+Number(reserveHeartRate*98/100));
+
+        document.getElementById("valueTraining100").innerHTML="-";
+        document.getElementById("valueTraining98").innerHTML=value95HeartRate + " - " + value98HeartRate;
+        document.getElementById("valueTraining95").innerHTML=value95HeartRate;
+        document.getElementById("valueTraining93").innerHTML=value92HeartRate + " - " + value93HeartRate;
+        document.getElementById("valueTraining92").innerHTML=zone5HeartRate + " - " + value92HeartRate;
+        document.getElementById("valueTraining90").innerHTML=zone5HeartRate;
+        document.getElementById("valueTraining85").innerHTML=value85HeartRate;
+        document.getElementById("valueTraining80").innerHTML=zone4HeartRate;
+        document.getElementById("valueTraining75").innerHTML=value75HeartRate;
+        document.getElementById("valueTrainingLess75").innerHTML="<" + value75HeartRate;
+        document.getElementById("zonePercentageTable").style.display="block";
+
     }
 }
 
