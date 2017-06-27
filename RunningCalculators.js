@@ -27,6 +27,8 @@ function knowMaxHeartRate(radioButton) {
     }
     document.getElementById("zoneTable").style.display="none";
     document.getElementById("zonePercentageTable").style.display="none";
+    document.getElementById("zoneTrainingTable").style.display="none";
+    document.getElementById("pZoneTraining").style.display="none";
     document.getElementById("estimatedMaxHeartRateLabel").style.display="none";
     document.getElementById("estimatedMaxHeartRateValue").style.display="none";
 }
@@ -202,7 +204,8 @@ function calculateTrainingZone() {
         document.getElementById("valueTraining80").innerHTML=zone4HeartRate;
         document.getElementById("valueTraining75").innerHTML=value75HeartRate;
         document.getElementById("valueTrainingLess75").innerHTML="<" + value75HeartRate;
-        document.getElementById("zonePercentageTable").style.display="block";
+        document.getElementById("zoneTrainingTable").style.display="block";
+        document.getElementById("pZoneTraining").style.display="block";
 
     }
 }

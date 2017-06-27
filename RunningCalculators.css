@@ -78,6 +78,13 @@ div#HeartRateZone.tabcontent table#zonePercentageTable {
     display: none;
 }
 
+div#HeartRateZone.tabcontent table#zoneTrainingTable {
+    display: none;
+}
+p#pZoneTraining {
+    display: none;
+}
+
 div#TrainingPace.tabcontent table#trainingPaceTable {
     display: none;
 }
@@ -137,6 +144,7 @@ table#zoneTable {
     border-collapse: collapse;
     float: left;
     margin: 0px 10px 0px 0px;
+    font-size: 12px;
 }
 
 #zoneTable td, #zoneTable th {
@@ -175,8 +183,10 @@ table#zoneTable {
 
 table#zonePercentageTable {
     font-family: arial, sans-serif;
-    //float: left;
+    float: left;
     border-collapse: collapse;
+    font-size: 12px;
+    margin: 0px 10px 0px 0px;
 }
 
 #zonePercentageTable td, #zonePercentageTable th {
@@ -213,6 +223,7 @@ table#zoneTrainingTable {
     font-family: arial, sans-serif;
     //float: left;
     border-collapse: collapse;
+    font-size: 12px;
 }
 
 #zoneTrainingTable td, #zoneTrainingTable th {
