@@ -4,15 +4,15 @@
 
 Running Calculators is a website for Runners that allow you to:
 
-* calculate your training pace based on your current fitness level;
-* calculate your training heart zone based on maximum and rest heart rate;
+* calculate your training paces based on your current fitness level;
+* calculate your training heart zones based on maximum and rest heart rate;
 * predict your race time for an event based on others events on different distance;
 * estimate your Body Mass Index (BMI) and Body Fat percentage;
 * calculate pace, time and distance for a running event.
 
 ## Why another Running Calculator?
 
-Running Calculators is not something new on the web. There are tons of Running Calculators out there, but not all are good. With time I learned the pro and cons of each calculator and I started to use regularly only few of them. The problem was that these calculators were on different websites so each time I had to look for them on Google. Some of them are on websites dedicated to fitness and running that are full of ads, video and other useless stuff that disturb the use of the software.
+Running Calculators is not something new on the web. There are tons of Running Calculators out there, but not all are good. With time I learned the pro and cons of each calculator and I started to use regularly only few of them. The problem was that these calculators were on different websites so each time I had to look for them on Google. Some of them are on fitness websites full of ads, video and other useless stuff that disturb the use of the software.
 
 I am also a Programmer and I needed to learn the Javascript language for my job. When I need to learn a language I always try to create a mini project from scratch because I know this is the best approach to learn it. 
 
