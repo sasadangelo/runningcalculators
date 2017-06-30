@@ -237,23 +237,36 @@ table#zoneTrainingTable {
 }
 
 #zoneTrainingTable tr:nth-child(2) {
-    background-color: #f74921;
+    background-color: #F74921;
 }
 
 #zoneTrainingTable tr:nth-child(3) {
-    background-color: #f96e2d;
+    background-color: #D6F118;
 }
 
 #zoneTrainingTable tr:nth-child(4) {
-    background-color: #fb9339;
+    background-color: #0FEB1D;
 }
 
 #zoneTrainingTable tr:nth-child(5) {
-    background-color: #fdb745;
+    background-color: #07E5E5;
 }
 
 #zoneTrainingTable tr:nth-child(6) {
-    background-color: #ffdc51;
+    background-color: #000EE0;
+    color: #ffffff;
+}
+
+#labelTraining100,
+#labelTraining98,
+#labelTraining95,
+#labelTraining93,
+#labelTraining92,
+#labelTraining90,
+#labelTraining85,
+#labelTraining80,
+#labelTraining75 {
+    font-weight: bold;
 }
 
 #zone5label,
